@@ -18,8 +18,6 @@ import com.android.billingclient.api.SkuDetailsResult
 import com.android.billingclient.api.acknowledgePurchase
 import com.android.billingclient.api.queryPurchasesAsync
 import com.android.billingclient.api.querySkuDetails
-import com.google.firebase.ktx.Firebase
-import com.google.firebase.remoteconfig.ktx.remoteConfig
 import com.michaldrabik.common.Config
 import com.michaldrabik.common.Config.PREMIUM_LIFETIME_INAPP
 import com.michaldrabik.common.Config.PREMIUM_LIFETIME_INAPP_PROMO
@@ -173,7 +171,7 @@ class PremiumViewModel @Inject constructor(
       try {
         loadingState.value = true
 
-        val inAppsEnabled = Firebase.remoteConfig.getBoolean("in_app_enabled")
+        val inAppsEnabled = true // TODO
 
         val paramsSubs = SkuDetailsParams.newBuilder()
           .setSkusList(listOf(PREMIUM_MONTHLY_SUBSCRIPTION, PREMIUM_YEARLY_SUBSCRIPTION))

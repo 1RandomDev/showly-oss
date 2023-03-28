@@ -1,6 +1,5 @@
 package com.michaldrabik.ui_base
 
-import com.google.firebase.crashlytics.FirebaseCrashlytics
 import okhttp3.RequestBody
 import okhttp3.internal.closeQuietly
 import okio.Buffer
@@ -18,34 +17,7 @@ object Logger {
       return
     }
     if (error is HttpException) {
-      recordHttpError(error, source)
       return
-    }
-    FirebaseCrashlytics.getInstance().run {
-      setCustomKey("Source", source)
-      recordException(error)
-    }
-  }
-
-  private fun recordHttpError(error: HttpException, source: String) {
-    val params = mutableListOf("Source" to source)
-
-    val responseString = error.response()?.raw()?.toString() ?: ""
-    val requestString = error.response()?.raw()?.request?.toString() ?: ""
-    val requestBody = error.response()?.raw()?.request?.body?.asString()
-    val token = requestString.substringAfter("Bearer").trim().substringBefore("]")
-
-    params.add("Response" to responseString)
-    params.add("Request" to requestString.replace(token, "***"))
-    if (requestBody != null) {
-      params.add("RequestBody" to requestBody)
-    }
-
-    FirebaseCrashlytics.getInstance().run {
-      params.forEach {
-        setCustomKey(it.first, it.second)
-      }
-      recordException(error)
     }
   }
 

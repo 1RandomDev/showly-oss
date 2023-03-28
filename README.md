@@ -43,8 +43,7 @@ tmdbApiKey="your tmdb api key (v4)"
 omdbApiKey="your omdb api key"
 redditClientId="your reddit client id"
 ```
-5. Generate your own Firebase `google-services.json` file and put it in the `/app` directory.
-6. Rebuild and start the app.
+5. Rebuild and start the app.
 
 ## Issues & Contributions
 

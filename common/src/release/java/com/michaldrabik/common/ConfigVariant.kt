@@ -5,8 +5,6 @@ import java.util.concurrent.TimeUnit.HOURS
 import java.util.concurrent.TimeUnit.MINUTES
 
 object ConfigVariant {
-  const val FIREBASE_SUFFIX = ""
-
   val SHOW_SYNC_COOLDOWN by lazy { HOURS.toMillis(12) }
   val MOVIE_SYNC_COOLDOWN by lazy { DAYS.toMillis(3) }
   val TRANSLATION_SYNC_SHOW_MOVIE_COOLDOWN by lazy { DAYS.toMillis(5) }

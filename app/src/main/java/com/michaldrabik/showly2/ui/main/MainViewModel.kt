@@ -61,9 +61,7 @@ class MainViewModel @Inject constructor(
     viewModelScope.launch {
       val isInitialRun = checkInitialRun()
       with(initCase) {
-        initializeFcm()
         preloadRatings()
-        loadRemoteConfig()
         saveInstallTimestamp()
       }
       checkApi13Locale(isInitialRun)

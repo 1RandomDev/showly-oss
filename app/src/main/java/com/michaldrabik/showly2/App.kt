@@ -7,14 +7,7 @@ import android.os.StrictMode
 import androidx.appcompat.app.AppCompatDelegate.setDefaultNightMode
 import androidx.hilt.work.HiltWorkerFactory
 import androidx.work.Configuration
-import com.google.firebase.crashlytics.FirebaseCrashlytics
-import com.google.firebase.ktx.Firebase
-import com.google.firebase.messaging.FirebaseMessaging
-import com.google.firebase.remoteconfig.ktx.remoteConfig
-import com.google.firebase.remoteconfig.ktx.remoteConfigSettings
 import com.jakewharton.processphoenix.ProcessPhoenix
-import com.michaldrabik.common.Config
-import com.michaldrabik.common.ConfigVariant
 import com.michaldrabik.repository.settings.SettingsRepository
 import com.michaldrabik.ui_base.common.AppScopeProvider
 import com.michaldrabik.ui_base.common.WidgetsProvider
@@ -50,7 +43,6 @@ class App :
       if (!settingsRepository.isInitialized()) {
         settingsRepository.update(Settings.createInitial())
       }
-      FirebaseCrashlytics.getInstance().setUserId(settingsRepository.userId)
     }
 
     fun setupStrictMode() {
@@ -93,34 +85,18 @@ class App :
       setDefaultNightMode(settingsRepository.theme)
     }
 
-    fun setupRemoteConfig() {
-      with(Firebase.remoteConfig) {
-        setConfigSettingsAsync(
-          remoteConfigSettings {
-            minimumFetchIntervalInSeconds = ConfigVariant.REMOTE_CONFIG_FETCH_INTERVAL
-          }
-        )
-        setDefaultsAsync(Config.REMOTE_CONFIG_DEFAULTS)
-      }
-    }
-
     super.onCreate()
 
     if (ProcessPhoenix.isPhoenixProcess(this)) return
 
     if (BuildConfig.DEBUG) {
       Timber.plant(Timber.DebugTree())
-      FirebaseMessaging.getInstance().token.addOnCompleteListener {
-        val fcmToken = runCatching { it.result }.onFailure { Timber.w("Missing FCM Token") }
-        Timber.d("FCM Token: $fcmToken")
-      }
     }
 
     setupSettings()
     setupStrictMode()
     setupNotificationChannels()
     setupTheme()
-    setupRemoteConfig()
   }
 
   override fun requestShowsWidgetsUpdate() {

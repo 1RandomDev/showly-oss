@@ -1,6 +1,5 @@
 package com.michaldrabik.data_remote.trakt.interceptors
 
-import com.google.firebase.crashlytics.FirebaseCrashlytics
 import com.michaldrabik.data_remote.token.TokenProvider
 import kotlinx.coroutines.runBlocking
 import okhttp3.Authenticator
@@ -45,7 +44,6 @@ class TraktAuthenticator @Inject constructor(
           .build()
       } catch (error: Throwable) {
         Timber.d(error)
-        FirebaseCrashlytics.getInstance().run { recordException(error) }
         null
       }
     }

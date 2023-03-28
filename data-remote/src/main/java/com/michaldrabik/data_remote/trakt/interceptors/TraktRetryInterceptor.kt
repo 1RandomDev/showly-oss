@@ -1,8 +1,5 @@
 package com.michaldrabik.data_remote.trakt.interceptors
 
-import android.os.Bundle
-import com.google.firebase.analytics.ktx.analytics
-import com.google.firebase.ktx.Firebase
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.sync.Mutex
@@ -36,12 +33,6 @@ class TraktRetryInterceptor @Inject constructor() : Interceptor {
       if (response.code == 429) {
         val error = Throwable("429 Too Many Requests")
         Timber.e(error)
-        Firebase.analytics.logEvent(
-          "trakt_too_many_requests",
-          Bundle().apply {
-            putString("url", response.request.url.toString())
-          }
-        )
       }
 
       response

@@ -7,9 +7,6 @@ import android.telephony.TelephonyManager
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.content.edit
 import androidx.core.os.LocaleListCompat
-import com.google.firebase.ktx.Firebase
-import com.google.firebase.messaging.FirebaseMessaging
-import com.google.firebase.remoteconfig.ktx.remoteConfig
 import com.michaldrabik.common.Config
 import com.michaldrabik.common.extensions.nowUtc
 import com.michaldrabik.common.extensions.nowUtcMillis
@@ -49,21 +46,6 @@ class MainInitialsCase @Inject constructor(
   suspend fun isInitialRun(): Boolean {
     val settings = settingsRepository.load()
     return settings.isInitialRun
-  }
-
-  @SuppressLint("NewApi")
-  suspend fun initializeFcm() {
-    FirebaseMessaging.getInstance().run {
-      val isEnabled = settingsRepository.load().pushNotificationsEnabled
-      val suffix = if (BuildConfig.DEBUG) "-debug" else ""
-      if (isEnabled) {
-        subscribeToTopic(NotificationChannel.GENERAL_INFO.topicName + suffix)
-        subscribeToTopic(NotificationChannel.SHOWS_INFO.topicName + suffix)
-      } else {
-        unsubscribeFromTopic(NotificationChannel.GENERAL_INFO.topicName + suffix)
-        unsubscribeFromTopic(NotificationChannel.SHOWS_INFO.topicName + suffix)
-      }
-    }
   }
 
   fun setInitialCountry() {
@@ -132,17 +114,6 @@ class MainInitialsCase @Inject constructor(
     launch(errorHandler) { ratingsRepository.shows.preloadRatings() }
     if (settingsRepository.isMoviesEnabled) {
       launch(errorHandler) { ratingsRepository.movies.preloadRatings() }
-    }
-  }
-
-  fun loadRemoteConfig() {
-    Firebase.remoteConfig.fetchAndActivate().addOnCompleteListener { task ->
-      if (task.isSuccessful) {
-        val updated = task.result
-        Timber.d("Remote Config params updated: $updated")
-      } else {
-        Timber.e("Remote Config fetch failed!")
-      }
     }
   }
 

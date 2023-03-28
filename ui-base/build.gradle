@@ -61,8 +61,6 @@ dependencies {
   api libs.overscrollDecor
   api libs.timber
 
-  api libs.bundles.firebase
-
   api libs.glide
   kapt libs.glide.compiler
 

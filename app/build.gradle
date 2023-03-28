@@ -1,21 +1,12 @@
 plugins {
-  id 'com.github.triplet.play'
   id 'com.android.application'
   id 'kotlin-android'
   id 'kotlin-android-extensions'
   id 'kotlin-kapt'
   id 'dagger.hilt.android.plugin'
-  id 'com.google.gms.google-services'
-  id 'com.google.firebase.appdistribution'
-  id 'com.google.firebase.crashlytics'
 }
 
 apply from: '../versions.gradle'
-
-play {
-  serviceAccountCredentials.set(file("gpp-service-key.json"))
-  track.set("internal")
-}
 
 android {
   kotlinOptions { jvmTarget = "1.8" }
@@ -69,12 +60,6 @@ android {
       minifyEnabled true
       signingConfig signingConfigs.release
       proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-      firebaseAppDistribution {
-        appId = "1:437530387781:android:7b5c191b8bc08486448a2c"
-        serviceCredentialsFile = rootProject.file("app/firebase-service-key.json")
-        releaseNotes = ""
-        groups = "developers"
-      }
     }
   }
 
