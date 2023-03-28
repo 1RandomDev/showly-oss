@@ -7,10 +7,6 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.children
 import androidx.core.view.updatePadding
 import androidx.fragment.app.viewModels
-import com.android.billingclient.api.BillingClient
-import com.android.billingclient.api.BillingFlowParams
-import com.android.billingclient.api.PurchasesUpdatedListener
-import com.android.billingclient.api.SkuDetails
 import com.michaldrabik.ui_base.BaseFragment
 import com.michaldrabik.ui_base.utilities.events.Event
 import com.michaldrabik.ui_base.utilities.extensions.bump
@@ -28,6 +24,7 @@ import kotlinx.android.synthetic.main.fragment_premium.premiumPurchaseItems
 import kotlinx.android.synthetic.main.fragment_premium.premiumRoot
 import kotlinx.android.synthetic.main.fragment_premium.premiumStatus
 import kotlinx.android.synthetic.main.fragment_premium.premiumToolbar
+import timber.log.Timber
 
 @AndroidEntryPoint
 class PremiumFragment : BaseFragment<PremiumViewModel>(R.layout.fragment_premium) {
@@ -35,18 +32,8 @@ class PremiumFragment : BaseFragment<PremiumViewModel>(R.layout.fragment_premium
   override val viewModel by viewModels<PremiumViewModel>()
 
   private val highlightItem by lazy { arguments?.getSerializable(ARG_ITEM) as? PremiumFeature }
-
-  private val billingClient: BillingClient by lazy {
-    BillingClient.newBuilder(requireAppContext())
-      .setListener(purchasesUpdateListener)
-      .enablePendingPurchases()
-      .build()
-  }
-
-  private val purchasesUpdateListener =
-    PurchasesUpdatedListener { billingResult, purchases ->
-      viewModel.handlePurchase(billingClient, billingResult, purchases ?: mutableListOf())
-    }
+  private var lastClicked = 0L
+  private var clickCounter = 0L
 
   override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
     super.onViewCreated(view, savedInstanceState)
@@ -56,7 +43,6 @@ class PremiumFragment : BaseFragment<PremiumViewModel>(R.layout.fragment_premium
       { viewModel.messageFlow.collect { showSnack(it) } },
       { viewModel.eventFlow.collect { handleEvent(it) } },
       doAfterLaunch = {
-        viewModel.loadBilling(billingClient)
         highlightItem?.let { viewModel.highlightItem(it) }
       }
     )
@@ -74,7 +60,7 @@ class PremiumFragment : BaseFragment<PremiumViewModel>(R.layout.fragment_premium
     uiState.run {
       premiumProgress.visibleIf(isLoading)
       premiumStatus.visibleIf(isPurchasePending)
-      purchaseItems?.let { renderPurchaseItems(it, isLoading) }
+      renderPurchaseItems(isLoading)
       onFinish?.let {
         it.consume()?.let {
           requireActivity().onBackPressed()
@@ -83,21 +69,28 @@ class PremiumFragment : BaseFragment<PremiumViewModel>(R.layout.fragment_premium
     }
   }
 
-  private fun renderPurchaseItems(items: List<SkuDetails>, isLoading: Boolean) {
+  private fun renderPurchaseItems(isLoading: Boolean) {
     premiumPurchaseItems.removeAllViews()
-    premiumPurchaseItems.visibleIf(items.isNotEmpty() && !isLoading)
+    premiumPurchaseItems.visibleIf(!isLoading)
 
-    if (items.isEmpty()) return
-    items.forEach { item ->
-      val view = PurchaseItemView(requireContext()).apply {
-        bind(item)
-        val flowParams = BillingFlowParams.newBuilder()
-          .setSkuDetails(item)
-          .build()
-        onClick { billingClient.launchBillingFlow(requireActivity(), flowParams) }
+    val view = PurchaseItemView(requireContext()).apply {
+      bindInApp("Single Payment", "$0.00")
+      onClick(false) {
+        val time = System.currentTimeMillis()
+        if (lastClicked != 0L && lastClicked + 500 > time) {
+          clickCounter++
+          if (clickCounter >= 7) {
+            Timber.d("Unlocked premium!")
+            viewModel.unlockAndFinish()
+          }
+        } else {
+          viewModel.sendErrorMessage()
+          clickCounter = 1
+        }
+        lastClicked = time
       }
-      premiumPurchaseItems.addView(view)
     }
+    premiumPurchaseItems.addView(view)
   }
 
   private fun handleEvent(event: Event<*>) {

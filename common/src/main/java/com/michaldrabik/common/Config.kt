@@ -41,12 +41,6 @@ object Config {
 
   const val SHOW_TIPS_DEBUG = false
   const val SHOW_PREMIUM = true
-  const val PROMOS_ENABLED = true
-
-  const val PREMIUM_MONTHLY_SUBSCRIPTION = "showly_premium_1_month"
-  const val PREMIUM_YEARLY_SUBSCRIPTION = "showly_premium_1_year"
-  const val PREMIUM_LIFETIME_INAPP = "showly_premium_unlock2"
-  const val PREMIUM_LIFETIME_INAPP_PROMO = "showly_premium_lifetime_promo"
 
   val MY_SHOWS_RECENTS_OPTIONS = arrayOf(2, 4, 6, 8)
   val DISCOVER_SHOWS_CACHE_DURATION by lazy { HOURS.toMillis(12) }

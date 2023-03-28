@@ -19,4 +19,5 @@
 
   <string name="textPurchaseThanks">You are now Showly Supporter!\nThank you and enjoy the app!</string>
   <string name="textPurchasePending" translatable="false">Your purchase is being processed by Google Play Store...</string>
+  <string name="textPurchaseNotAvailable">Payments not available in the OSS version.</string>
 </resources>

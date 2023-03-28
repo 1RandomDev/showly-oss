@@ -44,7 +44,5 @@ dependencies {
   implementation libs.hilt.android
   kapt libs.hilt.compiler
 
-  api libs.android.billing
-
   coreLibraryDesugaring libs.android.desugar
 }

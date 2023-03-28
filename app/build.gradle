@@ -104,9 +104,6 @@ dependencies {
   implementation libs.hilt.work
   kapt libs.hilt.work.compiler
 
-  implementation libs.android.playReviews
-  implementation libs.android.playUpdates
-
   testImplementation testLibs.bundles.testing
   androidTestImplementation androidTestLibs.android.test.runner
 

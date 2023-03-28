@@ -17,23 +17,15 @@ import androidx.navigation.fragment.findNavController
 import androidx.work.WorkManager
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.BaseTransientBottomBar.LENGTH_INDEFINITE
-import com.google.android.play.core.appupdate.AppUpdateManager
-import com.google.android.play.core.review.ReviewManagerFactory
 import com.michaldrabik.common.Config
 import com.michaldrabik.common.Mode
 import com.michaldrabik.common.Mode.MOVIES
 import com.michaldrabik.common.Mode.SHOWS
 import com.michaldrabik.repository.settings.SettingsRepository
-import com.michaldrabik.showly2.BuildConfig
 import com.michaldrabik.showly2.R
 import com.michaldrabik.showly2.ui.BaseActivity
-import com.michaldrabik.showly2.ui.main.delegates.BillingDelegate
-import com.michaldrabik.showly2.ui.main.delegates.MainBillingDelegate
-import com.michaldrabik.showly2.ui.main.delegates.MainUpdateDelegate
-import com.michaldrabik.showly2.ui.main.delegates.UpdateDelegate
 import com.michaldrabik.showly2.ui.views.WhatsNewView
 import com.michaldrabik.showly2.utilities.deeplink.DeepLinkResolver
-import com.michaldrabik.ui_base.Analytics
 import com.michaldrabik.ui_base.common.OnShowsMoviesSyncedListener
 import com.michaldrabik.ui_base.common.OnTabReselectedListener
 import com.michaldrabik.ui_base.events.Event
@@ -76,9 +68,7 @@ class MainActivity :
   NavigationHost,
   TipsHost,
   ModeHost,
-  MoviesStatusHost,
-  UpdateDelegate by MainUpdateDelegate(),
-  BillingDelegate by MainBillingDelegate() {
+  MoviesStatusHost {
 
   companion object {
     private const val NAVIGATION_TRANSITION_DURATION_MS = 350L
@@ -106,8 +96,7 @@ class MainActivity :
     super.onCreate(savedInstanceState)
     setContentView(R.layout.activity_main)
 
-    registerBilling(this, settingsRepository)
-    registerUpdate(this) { onUpdateDownloaded(it) }
+    //onUpdateDownloaded() TODO: Implement own updater from GitHub
 
     setupViewModel()
     setupNavigation()
@@ -323,12 +312,6 @@ class MainActivity :
       showWhatsNew?.let {
         if (it.consume() == true) showWhatsNewDialog()
       }
-      showRateApp?.let {
-        if (it.consume() == true) {
-          launchInAppReview()
-          Analytics.logInAppRateDisplayed()
-        }
-      }
       initialLanguage?.let { event ->
         event.consume()?.let {
           showWelcomeDialog(it)
@@ -386,17 +369,6 @@ class MainActivity :
   private fun showMask(show: Boolean) {
     viewMask.visibleIf(show)
     if (!show) viewModel.clearMask()
-  }
-
-  private fun launchInAppReview() {
-    val manager = ReviewManagerFactory.create(applicationContext)
-    val request = manager.requestReviewFlow()
-    request.addOnCompleteListener {
-      if (it.isSuccessful) {
-        val flow = manager.launchReviewFlow(this@MainActivity, it.result)
-        flow.addOnCompleteListener { viewModel.completeAppRate() }
-      }
-    }
   }
 
   @SuppressLint("MissingSuperCall")
@@ -478,12 +450,11 @@ class MainActivity :
     else -> throw IllegalStateException()
   }
 
-  private fun onUpdateDownloaded(manager: AppUpdateManager) {
+  private fun onUpdateDownloaded() {
     provideSnackbarLayout().showInfoSnackbar(
       message = getString(R.string.textUpdateDownloaded), actionText = R.string.textUpdateInstall, length = LENGTH_INDEFINITE
     ) {
-      Analytics.logInAppUpdate(BuildConfig.VERSION_NAME, BuildConfig.VERSION_CODE.toLong())
-      manager.completeUpdate()
+      // TODO: Implement own updater from GitHub
     }
   }
 
