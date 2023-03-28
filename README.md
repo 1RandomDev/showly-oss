@@ -7,7 +7,14 @@
 
 Showly 2.0 is modern, slick, open source Android TV Shows Tracker.
 
-Available on the Google Play Store and soon also on F-Droid.
+This fork gets rid of all proprietary tracking libraries.
+
+<a href="https://github.com/1RandomDev/showly-oss/releases/latest">
+  <img
+    alt="Get it on GitHub"
+    height="80"
+    src="badge_github.png"/>
+</a>
 
 ## Screenshots
 
