@@ -46,7 +46,7 @@
 
         <data
           android:host="trakt"
-          android:scheme="showly2"
+          android:scheme="showlyoss"
           />
       </intent-filter>
 

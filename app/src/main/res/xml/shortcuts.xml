@@ -13,8 +13,8 @@
     >
     <intent
       android:action="android.intent.action.VIEW"
-      android:targetClass="com.michaldrabik.showly2.ui.main.MainActivity"
-      android:targetPackage="com.michaldrabik.showly2"
+      android:targetClass="com.michaldrabik.showly_oss.ui.main.MainActivity"
+      android:targetPackage="com.michaldrabik.showly_oss"
       >
       <extra
         android:name="extraShortcutSearch"
@@ -32,8 +32,8 @@
     >
     <intent
       android:action="android.intent.action.VIEW"
-      android:targetClass="com.michaldrabik.showly2.ui.main.MainActivity"
-      android:targetPackage="com.michaldrabik.showly2"
+      android:targetClass="com.michaldrabik.showly_oss.ui.main.MainActivity"
+      android:targetPackage="com.michaldrabik.showly_oss"
       >
       <extra
         android:name="extraShortcutCollection"
@@ -51,8 +51,8 @@
     >
     <intent
       android:action="android.intent.action.VIEW"
-      android:targetClass="com.michaldrabik.showly2.ui.main.MainActivity"
-      android:targetPackage="com.michaldrabik.showly2"
+      android:targetClass="com.michaldrabik.showly_oss.ui.main.MainActivity"
+      android:targetPackage="com.michaldrabik.showly_oss"
       >
       <extra
         android:name="extraShortcutDiscover"
@@ -70,8 +70,8 @@
     >
     <intent
       android:action="android.intent.action.VIEW"
-      android:targetClass="com.michaldrabik.showly2.ui.main.MainActivity"
-      android:targetPackage="com.michaldrabik.showly2"
+      android:targetClass="com.michaldrabik.showly_oss.ui.main.MainActivity"
+      android:targetPackage="com.michaldrabik.showly_oss"
       >
       <extra
         android:name="extraShortcutProgress"

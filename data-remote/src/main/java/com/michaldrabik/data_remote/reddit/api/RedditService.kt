@@ -12,7 +12,7 @@ import retrofit2.http.Query
 interface RedditService {
 
   companion object {
-    private const val USER_AGENT = "android:com.michaldrabik.showly2:v${BuildConfig.VER_NAME} (by /u/drabred)"
+    private const val USER_AGENT = "android:com.michaldrabik.showly_oss:v${BuildConfig.VER_NAME} (by /u/drabred)"
   }
 
   @Headers("User-Agent: $USER_AGENT")

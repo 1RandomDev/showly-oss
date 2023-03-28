@@ -1,20 +1,13 @@
-![Version](https://img.shields.io/github/v/tag/michaldrabik/showly-2.0?label=version)
-![Build]( https://img.shields.io/github/actions/workflow/status/michaldrabik/showly-2.0/android.yml?branch=master)
+![Version](https://img.shields.io/github/v/tag/1RandomDev/showly-oss?label=version)
+![Build]( https://img.shields.io/github/actions/workflow/status/1RandomDev/showly-oss/android.yml?branch=master)
 ![Twitter](https://img.shields.io/twitter/follow/AppShowly?style=social)
 
-# Showly 2.0
+# Showly OSS
 <img src="https://i.ibb.co/ChBN7Lg/ic-launcher.png" align="left" width="180" hspace="10" vspace="10" />
 
 Showly 2.0 is modern, slick, open source Android TV Shows Tracker.
 
 Available on the Google Play Store and soon also on F-Droid.
-
-<a href="https://play.google.com/store/apps/details?id=com.michaldrabik.showly2">
-  <img
-    alt="Get it on Google Play"
-    height="80"
-    src="https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png"/>
-</a>
 
 ## Screenshots
 

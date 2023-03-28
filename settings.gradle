@@ -71,7 +71,7 @@ dependencyResolutionManagement {
   }
 }
 
-rootProject.name = 'Showly 2.0'
+rootProject.name = 'Showly OSS'
 include ':app'
 include ':data-remote'
 include ':data-local'

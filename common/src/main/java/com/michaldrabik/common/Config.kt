@@ -20,7 +20,7 @@ object Config {
   const val AWS_IMAGE_BASE_URL = "https://showly2.s3.eu-west-2.amazonaws.com/images/"
 
   const val DEVELOPER_MAIL = "showlyapp@gmail.com"
-  const val PLAYSTORE_URL = "https://play.google.com/store/apps/details?id=com.michaldrabik.showly2"
+  const val PLAYSTORE_URL = "https://play.google.com/store/apps/details?id=com.michaldrabik.showly_oss"
   const val TWITTER_URL = "https://twitter.com/AppShowly/"
   const val TRAKT_URL = "https://www.trakt.tv/"
   const val JUST_WATCH_URL = "https://www.justwatch.com/"
@@ -37,7 +37,7 @@ object Config {
   const val DEFAULT_DATE_FORMAT = "DEFAULT_24"
   const val DEFAULT_NEWS_VIEW_TYPE = "ROW"
   const val DEFAULT_LIST_VIEW_MODE = "LIST_NORMAL"
-  const val HOST_ACTIVITY_NAME = "com.michaldrabik.showly2.ui.main.MainActivity"
+  const val HOST_ACTIVITY_NAME = "com.michaldrabik.showly_oss.ui.main.MainActivity"
 
   const val SHOW_TIPS_DEBUG = false
   const val SHOW_PREMIUM = true

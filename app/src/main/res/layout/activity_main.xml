@@ -53,7 +53,7 @@
       android:background="?attr/colorBottomMenuSeparator"
       />
 
-    <com.michaldrabik.showly2.ui.views.BottomMenuView
+    <com.michaldrabik.showly_oss.ui.views.BottomMenuView
       android:id="@+id/bottomMenuView"
       android:layout_width="match_parent"
       android:layout_height="@dimen/bottomNavigationHeight"
@@ -131,7 +131,7 @@
     tools:visibility="visible"
     />
 
-  <com.michaldrabik.showly2.ui.views.WelcomeNoteView
+  <com.michaldrabik.showly_oss.ui.views.WelcomeNoteView
     android:id="@+id/welcomeView"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -143,7 +143,7 @@
     tools:visibility="visible"
     />
 
-  <com.michaldrabik.showly2.ui.views.WelcomeLanguageView
+  <com.michaldrabik.showly_oss.ui.views.WelcomeLanguageView
     android:id="@+id/welcomeLanguageView"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"

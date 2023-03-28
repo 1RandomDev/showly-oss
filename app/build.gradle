@@ -27,7 +27,7 @@ android {
   compileSdkVersion versions.compileSdk
 
   defaultConfig {
-    applicationId "com.michaldrabik.showly2"
+    applicationId "com.michaldrabik.showly_oss"
     minSdkVersion versions.minSdk
     targetSdkVersion versions.targetSdk
     compileSdkVersion versions.compileSdk
@@ -67,7 +67,7 @@ android {
     checkReleaseBuilds false
   }
 
-  namespace 'com.michaldrabik.showly2'
+  namespace 'com.michaldrabik.showly_oss'
 }
 
 dependencies {
