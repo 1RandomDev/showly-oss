@@ -29,15 +29,7 @@ import com.michaldrabik.ui_base.dates.AppDateFormat
 import com.michaldrabik.ui_base.dates.DateFormatProvider
 import com.michaldrabik.ui_base.trakt.TraktSyncWorker
 import com.michaldrabik.ui_base.utilities.events.MessageEvent
-import com.michaldrabik.ui_base.utilities.extensions.capitalizeWords
-import com.michaldrabik.ui_base.utilities.extensions.doOnApplyWindowInsets
-import com.michaldrabik.ui_base.utilities.extensions.expandTouch
-import com.michaldrabik.ui_base.utilities.extensions.fadeIn
-import com.michaldrabik.ui_base.utilities.extensions.launchAndRepeatStarted
-import com.michaldrabik.ui_base.utilities.extensions.onClick
-import com.michaldrabik.ui_base.utilities.extensions.openWebUrl
-import com.michaldrabik.ui_base.utilities.extensions.setCheckedSilent
-import com.michaldrabik.ui_base.utilities.extensions.visibleIf
+import com.michaldrabik.ui_base.utilities.extensions.*
 import com.michaldrabik.ui_model.MyMoviesSection
 import com.michaldrabik.ui_model.MyShowsSection.RECENTS
 import com.michaldrabik.ui_model.NotificationDelay
@@ -52,54 +44,7 @@ import com.michaldrabik.ui_settings.helpers.AppLanguage
 import com.michaldrabik.ui_settings.helpers.AppTheme
 import com.michaldrabik.ui_settings.helpers.WidgetTransparency
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.android.synthetic.main.fragment_settings.settingsContactDevs
-import kotlinx.android.synthetic.main.fragment_settings.settingsContent
-import kotlinx.android.synthetic.main.fragment_settings.settingsCountryValue
-import kotlinx.android.synthetic.main.fragment_settings.settingsDateFormat
-import kotlinx.android.synthetic.main.fragment_settings.settingsDateFormatValue
-import kotlinx.android.synthetic.main.fragment_settings.settingsDeleteCache
-import kotlinx.android.synthetic.main.fragment_settings.settingsIncludeSpecialsSwitch
-import kotlinx.android.synthetic.main.fragment_settings.settingsJustWatchIcon
-import kotlinx.android.synthetic.main.fragment_settings.settingsLanguageValue
-import kotlinx.android.synthetic.main.fragment_settings.settingsMoviesEnabledSwitch
-import kotlinx.android.synthetic.main.fragment_settings.settingsMyMoviesSections
-import kotlinx.android.synthetic.main.fragment_settings.settingsMyShowsSections
-import kotlinx.android.synthetic.main.fragment_settings.settingsNewsEnabled
-import kotlinx.android.synthetic.main.fragment_settings.settingsNewsEnabledSwitch
-import kotlinx.android.synthetic.main.fragment_settings.settingsPremium
-import kotlinx.android.synthetic.main.fragment_settings.settingsProgressNextValue
-import kotlinx.android.synthetic.main.fragment_settings.settingsPushNotificationsSwitch
-import kotlinx.android.synthetic.main.fragment_settings.settingsRecentShowsAmount
-import kotlinx.android.synthetic.main.fragment_settings.settingsRoot
-import kotlinx.android.synthetic.main.fragment_settings.settingsShowsNotificationsSwitch
-import kotlinx.android.synthetic.main.fragment_settings.settingsStreamingsSwitch
-import kotlinx.android.synthetic.main.fragment_settings.settingsTheme
-import kotlinx.android.synthetic.main.fragment_settings.settingsThemeValue
-import kotlinx.android.synthetic.main.fragment_settings.settingsTmdbIcon
-import kotlinx.android.synthetic.main.fragment_settings.settingsToolbar
-import kotlinx.android.synthetic.main.fragment_settings.settingsTraktAuthorize
-import kotlinx.android.synthetic.main.fragment_settings.settingsTraktAuthorizeIcon
-import kotlinx.android.synthetic.main.fragment_settings.settingsTraktAuthorizeProgress
-import kotlinx.android.synthetic.main.fragment_settings.settingsTraktAuthorizeSummary
-import kotlinx.android.synthetic.main.fragment_settings.settingsTraktIcon
-import kotlinx.android.synthetic.main.fragment_settings.settingsTraktQuickRate
-import kotlinx.android.synthetic.main.fragment_settings.settingsTraktQuickRateSwitch
-import kotlinx.android.synthetic.main.fragment_settings.settingsTraktQuickRemove
-import kotlinx.android.synthetic.main.fragment_settings.settingsTraktQuickRemoveSwitch
-import kotlinx.android.synthetic.main.fragment_settings.settingsTraktQuickSync
-import kotlinx.android.synthetic.main.fragment_settings.settingsTraktQuickSyncSwitch
-import kotlinx.android.synthetic.main.fragment_settings.settingsTraktSync
-import kotlinx.android.synthetic.main.fragment_settings.settingsTraktSyncProgress
-import kotlinx.android.synthetic.main.fragment_settings.settingsGithubIcon
-import kotlinx.android.synthetic.main.fragment_settings.settingsUpcomingSectionSwitch
-import kotlinx.android.synthetic.main.fragment_settings.settingsUserId
-import kotlinx.android.synthetic.main.fragment_settings.settingsVersion
-import kotlinx.android.synthetic.main.fragment_settings.settingsWhenToNotifyValue
-import kotlinx.android.synthetic.main.fragment_settings.settingsWidgetsLabelsSwitch
-import kotlinx.android.synthetic.main.fragment_settings.settingsWidgetsTheme
-import kotlinx.android.synthetic.main.fragment_settings.settingsWidgetsThemeValue
-import kotlinx.android.synthetic.main.fragment_settings.settingsWidgetsTransparency
-import kotlinx.android.synthetic.main.fragment_settings.settingsWidgetsTransparencyValue
+import kotlinx.android.synthetic.main.fragment_settings.*
 import com.michaldrabik.data_remote.Config as ConfigNetwork
 
 @AndroidEntryPoint
@@ -142,6 +87,10 @@ class SettingsFragment : BaseFragment<SettingsViewModel>(R.layout.fragment_setti
       val inset = insets.getInsets(WindowInsetsCompat.Type.systemBars()).top
       view.updatePadding(top = padding.top + inset)
     }
+
+    // Disable push notification switch since they are not supported in the OSS version
+    settingsPushNotifications.alpha = 0.5F
+    settingsPushNotificationsSwitch.isEnabled = false;
   }
 
   private fun setupWorkManager() {
@@ -277,9 +226,7 @@ class SettingsFragment : BaseFragment<SettingsViewModel>(R.layout.fragment_setti
       }
 
     settingsPushNotificationsSwitch
-      .setCheckedSilent(settings.pushNotificationsEnabled) { _, isChecked ->
-        viewModel.enablePushNotifications(isChecked)
-      }
+      .setCheckedSilent(false)
 
     settingsShowsNotificationsSwitch
       .setCheckedSilent(settings.episodesNotificationsEnabled) { _, isChecked ->
