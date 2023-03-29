@@ -48,9 +48,7 @@
   <string name="textSettingsShowsNotificationsSummary">Receive notifications about new movies, episodes, seasons for shows you are following.</string>
   <string name="textSettingsMisc">Misc</string>
   <string name="textSettingsContactDevsTitle">Contact Developers</string>
-  <string name="textSettingsContactDevsSummary">Got an issue? Click to send us an email (showlyapp@gmail.com).</string>
-  <string name="textSettingsRateAppTitle">Give Feedback</string>
-  <string name="textSettingsRateAppSummary">Enjoying Showly? Drop us a review on PlayStore. Thanks!</string>
+  <string name="textSettingsContactDevsSummary">Found a problem? Feel free to open an issue on GitHub.</string>
   <string name="textSettingsDeleteCacheTitle">Clear Images Cache</string>
   <string name="textSettingsDeleteCacheSummary">Click to clear local images cache. This may help if shows images are not being loaded correctly.</string>
   <string name="textSettingsQuickSyncConfirmationTitle">Disable Automatic Sync</string>

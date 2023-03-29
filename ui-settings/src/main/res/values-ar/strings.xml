@@ -47,9 +47,7 @@
   <string name="textSettingsShowsNotificationsSummary">تلقي إشعارات للأفلام والحلقات والمواسم الجديدة للمحتويات التي تتابعها.</string>
   <string name="textSettingsMisc">إعدادات متنوعة</string>
   <string name="textSettingsContactDevsTitle">التواصل مع المطورين</string>
-  <string name="textSettingsContactDevsSummary">واجهتك مشكلة؟ إضغط للتواصل معنا عبر (showlyapp@gmail.com).</string>
-  <string name="textSettingsRateAppTitle">قيم التطبيق</string>
-  <string name="textSettingsRateAppSummary">تستمتع بإستخدام Showly؟ أرسل لنا مراجعة في قوقل بلاي، وشكراً!</string>
+  <string name="textSettingsContactDevsSummary">واجهتك مشكلة؟انقر هنا لفتح مشكلة على جيثب.</string>
   <string name="textSettingsDeleteCacheTitle">مسح بيانات الصور في الذاكرة المؤقتة</string>
   <string name="textSettingsDeleteCacheSummary">إضغط لتنفيذ الإجراء، إذا واجهتك مشكلة في تحميل الصور، جرب الضغط هنا.</string>
   <string name="textSettingsQuickSyncConfirmationTitle">تعطيل المزامنة التلقائية</string>

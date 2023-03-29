@@ -134,11 +134,12 @@ class DiscoverFragment :
     layoutManager = GridLayoutManager(context, MAIN_GRID_SPAN)
     adapter = DiscoverAdapter(
       itemClickListener = {
-        when (it.image.type) {
+        /*when (it.image.type) {
           ImageType.TWITTER -> openWebUrl(Config.TWITTER_URL)
           ImageType.PREMIUM -> openPremium()
           else -> openDetails(it)
-        }
+        }*/
+        openDetails(it)
       },
       itemLongClickListener = { item -> openShowMenu(item.show) },
       missingImageListener = { ids, force -> viewModel.loadMissingImage(ids, force) },

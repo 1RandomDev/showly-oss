@@ -879,7 +879,7 @@
       android:id="@+id/settingsCategoryMisc"
       style="@style/Settings.Category"
       android:text="@string/textSettingsMisc"
-      app:layout_constraintBottom_toTopOf="@id/settingsRateApp"
+      app:layout_constraintBottom_toTopOf="@id/settingsContactDevs"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toBottomOf="@id/settingsWidgetsLabels"
       />
@@ -910,7 +910,7 @@
       app:layout_constraintBottom_toTopOf="@+id/settingsDeleteCache"
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toBottomOf="@+id/settingsRateApp"
+      app:layout_constraintTop_toBottomOf="@+id/settingsCategoryMisc"
       >
 
       <TextView
@@ -925,29 +925,6 @@
 
     </LinearLayout>
 
-    <LinearLayout
-      android:id="@+id/settingsRateApp"
-      style="@style/Settings.ItemLayout"
-      app:layout_constraintBottom_toTopOf="@+id/settingsContactDevs"
-      app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toBottomOf="@id/settingsCategoryMisc"
-      >
-
-      <TextView
-        style="@style/Settings.Title"
-        android:text="@string/textSettingsRateAppTitle"
-        android:textColor="?attr/colorAccent"
-        />
-
-      <TextView
-        style="@style/Settings.Summary"
-        android:text="@string/textSettingsRateAppSummary"
-        android:textColor="?attr/colorAccent"
-        />
-
-    </LinearLayout>
-
     <ImageView
       android:id="@+id/settingsTmdbIcon"
       android:layout_width="wrap_content"
@@ -956,7 +933,7 @@
       android:layout_marginEnd="@dimen/spaceSmall"
       android:adjustViewBounds="true"
       app:layout_constraintBottom_toTopOf="@id/settingsJustWatchDisclaimer"
-      app:layout_constraintEnd_toStartOf="@id/settingsTwitterIcon"
+      app:layout_constraintEnd_toStartOf="@id/settingsGithubIcon"
       app:layout_constraintStart_toEndOf="@id/settingsTraktIcon"
       app:layout_constraintTop_toBottomOf="@id/settingsDeleteCache"
       app:srcCompat="@drawable/ic_tmdb"
@@ -978,17 +955,16 @@
       />
 
     <ImageView
-      android:id="@+id/settingsTwitterIcon"
-      android:layout_width="60dp"
-      android:layout_height="40dp"
-      android:layout_marginStart="@dimen/spaceTiny"
-      android:adjustViewBounds="true"
-      app:layout_constraintBottom_toTopOf="@id/settingsJustWatchDisclaimer"
-      app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintStart_toEndOf="@id/settingsTmdbIcon"
-      app:layout_constraintTop_toBottomOf="@id/settingsDeleteCache"
-      app:srcCompat="@drawable/ic_twitter"
-      />
+        android:id="@+id/settingsGithubIcon"
+        android:layout_width="60dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="@dimen/spaceTiny"
+        android:adjustViewBounds="true"
+        app:layout_constraintBottom_toTopOf="@id/settingsJustWatchDisclaimer"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/settingsTmdbIcon"
+        app:layout_constraintTop_toBottomOf="@id/settingsDeleteCache"
+        app:srcCompat="@drawable/ic_github" />
 
     <TextView
       android:id="@+id/settingsJustWatchDisclaimer"

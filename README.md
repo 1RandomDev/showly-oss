@@ -1,6 +1,4 @@
 ![Version](https://img.shields.io/github/v/tag/1RandomDev/showly-oss?label=version)
-![Build]( https://img.shields.io/github/actions/workflow/status/1RandomDev/showly-oss/android.yml?branch=master)
-![Twitter](https://img.shields.io/twitter/follow/AppShowly?style=social)
 
 # Showly OSS
 <img src="https://i.ibb.co/ChBN7Lg/ic-launcher.png" align="left" width="180" hspace="10" vspace="10" />
@@ -47,9 +45,9 @@ redditClientId="your reddit client id"
 
 ## Issues & Contributions
 
-Feel free to post problems with the app as Github [Issues](https://github.com/michaldrabik/showly-2.0/issues).
+Feel free to post problems with the app as Github [Issues](https://github.com/1RandomDev/showly-oss/issues).
 
-Features ideas should be posted as new GIthub [Discussion](https://github.com/michaldrabik/showly-2.0/discussions).
+Features ideas should be posted as new Github [Discussion](https://github.com/1RandomDev/showly-oss/discussions).
 
 Pull requests are welcome. Remember about leaving a comment in the relevant issue if you are working on something.
 
@@ -70,11 +68,3 @@ https://crwd.in/showly-android-app
   Showly uses [Trakt.tv](https://trakt.tv) as its main data source.
   If something is missing please use "Import Show" / "Import Movie" option located at the bottom of Trakt.tv website.
   It's also possible to contact Trakt.tv support about any related issue.
-
-## Contact
-
-Twitter: https://twitter.com/AppShowly
-
-Landing Page: www.showlyapp.com
-
-Email: showlyapp@gmail.com

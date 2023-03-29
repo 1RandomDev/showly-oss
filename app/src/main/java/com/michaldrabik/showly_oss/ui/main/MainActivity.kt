@@ -429,7 +429,7 @@ class MainActivity :
   private fun showWhatsNewDialog() {
     MaterialAlertDialogBuilder(this, R.style.AlertDialog).setBackground(ContextCompat.getDrawable(this, R.drawable.bg_dialog))
       .setView(WhatsNewView(this)).setCancelable(false).setPositiveButton(R.string.textClose) { _, _ -> }
-      .setNeutralButton("Twitter") { _, _ -> openWebUrl(Config.TWITTER_URL) }.show()
+      .setNeutralButton("GitHub") { _, _ -> openWebUrl(Config.GITHUB_URL) }.show()
   }
 
   private fun getMenuDiscoverAction() = when (viewModel.getMode()) {

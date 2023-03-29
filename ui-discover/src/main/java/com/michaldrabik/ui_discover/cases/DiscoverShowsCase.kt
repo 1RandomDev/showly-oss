@@ -118,8 +118,8 @@ class DiscoverShowsCase @Inject constructor(
         }
       }.awaitAll()
       .toMutableList()
-      .apply { insertTwitterAdItem(this) }
-      .apply { insertPremiumAdItem(this) }
+      //.apply { insertTwitterAdItem(this) }
+      //.apply { insertPremiumAdItem(this) }
       .toList()
   }
 

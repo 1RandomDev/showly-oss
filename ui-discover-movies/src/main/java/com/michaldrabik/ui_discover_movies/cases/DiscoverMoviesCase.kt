@@ -111,7 +111,7 @@ class DiscoverMoviesCase @Inject constructor(
       }
       .awaitAll()
       .toMutableList()
-      .apply { insertPremiumAdItem(this) }
+      //.apply { insertPremiumAdItem(this) }
       .toList()
   }
 

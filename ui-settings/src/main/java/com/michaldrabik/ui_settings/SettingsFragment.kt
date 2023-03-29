@@ -50,7 +50,6 @@ import com.michaldrabik.ui_model.TraktSyncSchedule.OFF
 import com.michaldrabik.ui_navigation.java.NavigationArgs.ARG_ITEM
 import com.michaldrabik.ui_settings.helpers.AppLanguage
 import com.michaldrabik.ui_settings.helpers.AppTheme
-import com.michaldrabik.ui_settings.helpers.PlayStoreHelper
 import com.michaldrabik.ui_settings.helpers.WidgetTransparency
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.fragment_settings.settingsContactDevs
@@ -70,7 +69,6 @@ import kotlinx.android.synthetic.main.fragment_settings.settingsNewsEnabledSwitc
 import kotlinx.android.synthetic.main.fragment_settings.settingsPremium
 import kotlinx.android.synthetic.main.fragment_settings.settingsProgressNextValue
 import kotlinx.android.synthetic.main.fragment_settings.settingsPushNotificationsSwitch
-import kotlinx.android.synthetic.main.fragment_settings.settingsRateApp
 import kotlinx.android.synthetic.main.fragment_settings.settingsRecentShowsAmount
 import kotlinx.android.synthetic.main.fragment_settings.settingsRoot
 import kotlinx.android.synthetic.main.fragment_settings.settingsShowsNotificationsSwitch
@@ -92,7 +90,7 @@ import kotlinx.android.synthetic.main.fragment_settings.settingsTraktQuickSync
 import kotlinx.android.synthetic.main.fragment_settings.settingsTraktQuickSyncSwitch
 import kotlinx.android.synthetic.main.fragment_settings.settingsTraktSync
 import kotlinx.android.synthetic.main.fragment_settings.settingsTraktSyncProgress
-import kotlinx.android.synthetic.main.fragment_settings.settingsTwitterIcon
+import kotlinx.android.synthetic.main.fragment_settings.settingsGithubIcon
 import kotlinx.android.synthetic.main.fragment_settings.settingsUpcomingSectionSwitch
 import kotlinx.android.synthetic.main.fragment_settings.settingsUserId
 import kotlinx.android.synthetic.main.fragment_settings.settingsVersion
@@ -136,7 +134,7 @@ class SettingsFragment : BaseFragment<SettingsViewModel>(R.layout.fragment_setti
     settingsPremium.onClick { navigateTo(R.id.actionSettingsFragmentToPremium) }
     settingsTraktSync.onClick { navigateTo(R.id.actionSettingsFragmentToTraktSync) }
     settingsDeleteCache.onClick { viewModel.deleteImagesCache(requireAppContext()) }
-    settingsTwitterIcon.onClick { openWebLink(Config.TWITTER_URL) }
+    settingsGithubIcon.onClick { openWebLink(Config.GITHUB_URL) }
     settingsTraktIcon.onClick { openWebLink(Config.TRAKT_URL) }
     settingsTmdbIcon.onClick { openWebLink(Config.TMDB_URL) }
     settingsJustWatchIcon.onClick { openWebLink(Config.JUST_WATCH_URL) }
@@ -324,11 +322,7 @@ class SettingsFragment : BaseFragment<SettingsViewModel>(R.layout.fragment_setti
       }
 
     settingsContactDevs.onClick {
-      openMailMessage()
-    }
-
-    settingsRateApp.onClick {
-      PlayStoreHelper.openPlayStorePage(requireActivity())
+      openWebLink(Config.GITHUB_ISSUE_URL)
     }
 
     settingsVersion.text = "v${BuildConfig.VER_NAME} (${BuildConfig.VER_CODE})"
@@ -599,18 +593,6 @@ class SettingsFragment : BaseFragment<SettingsViewModel>(R.layout.fragment_setti
 
   private fun openWebLink(url: String) {
     openWebUrl(url) ?: showSnack(MessageEvent.Info(R.string.errorCouldNotFindApp))
-  }
-
-  private fun openMailMessage() {
-    val id = "${settingsVersion.text}, ${settingsUserId.text}"
-    val intent = Intent(ACTION_SENDTO).apply {
-      data = Uri.parse("mailto:")
-      putExtra(EXTRA_EMAIL, arrayOf(Config.DEVELOPER_MAIL))
-      putExtra(EXTRA_SUBJECT, "Showly Message/Issue (Version: $id)")
-    }
-    if (intent.resolveActivity(requireActivity().packageManager) != null) {
-      startActivity(intent)
-    }
   }
 
   override fun onAuthorizationResult(authData: Uri?) = viewModel.authorizeTrakt(authData)

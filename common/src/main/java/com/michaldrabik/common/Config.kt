@@ -19,12 +19,12 @@ object Config {
 
   const val AWS_IMAGE_BASE_URL = "https://showly2.s3.eu-west-2.amazonaws.com/images/"
 
-  const val DEVELOPER_MAIL = "showlyapp@gmail.com"
-  const val PLAYSTORE_URL = "https://play.google.com/store/apps/details?id=com.michaldrabik.showly_oss"
-  const val TWITTER_URL = "https://twitter.com/AppShowly/"
   const val TRAKT_URL = "https://www.trakt.tv/"
   const val JUST_WATCH_URL = "https://www.justwatch.com/"
   const val TMDB_URL = "https://www.themoviedb.org/"
+  const val GITHUB_RELEASE_URL = "https://github.com/1RandomDev/showly-oss/releases/latest"
+  const val GITHUB_ISSUE_URL = "https://github.com/1RandomDev/showly-oss/issues"
+  const val GITHUB_URL = "https://github.com/1RandomDev/showly-oss"
 
   const val MAIN_GRID_SPAN = 3
   const val LISTS_GRID_SPAN = 4
