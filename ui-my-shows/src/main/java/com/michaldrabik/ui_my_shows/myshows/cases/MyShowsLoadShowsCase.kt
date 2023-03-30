@@ -46,6 +46,8 @@ class MyShowsLoadShowsCase @Inject constructor(
     allShows: List<MyShowsItem>,
     allSeasons: List<Season>,
     searchQuery: String? = null,
+    networks: List<String>,
+    genres: List<String>
   ): List<MyShowsItem> {
     val shows = allShows
       .filter { showItem ->
@@ -69,6 +71,8 @@ class MyShowsLoadShowsCase @Inject constructor(
 
     return shows
       .filterByQuery(searchQuery)
+      .filterByNetwork(networks)
+      .filterByGenre(genres)
       .sortedWith(
         sorter.sort(
           sortOrder = settingsRepository.sorting.myShowsAllSortOrder,
@@ -84,4 +88,10 @@ class MyShowsLoadShowsCase @Inject constructor(
         it.translation?.title?.contains(query, true) == true
     }
   }
+
+  private fun List<MyShowsItem>.filterByNetwork(networks: List<String>) =
+    filter { networks.isEmpty() || it.show.network in networks }
+
+  private fun List<MyShowsItem>.filterByGenre(genres: List<String>) =
+    filter { genres.isEmpty() || it.show.genres.any { genre -> genre.lowercase() in genres } }
 }

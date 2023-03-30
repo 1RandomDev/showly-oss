@@ -44,6 +44,11 @@ class HiddenLoadShowsCase @Inject constructor(
     val sortOrder = settingsRepository.sorting.hiddenShowsSortOrder
     val sortType = settingsRepository.sorting.hiddenShowsSortType
 
+    val filtersItem = loadFiltersItem(sortOrder, sortType)
+    val filtersNetworks = filtersItem.networks
+      .flatMap { network -> network.channels.map { it } }
+    val filtersGenres = filtersItem.genres.map { it.slug.lowercase() }
+
     val hiddenItems = showsRepository.hiddenShows.loadAll()
       .map {
         toListItemAsync(
@@ -56,10 +61,11 @@ class HiddenLoadShowsCase @Inject constructor(
       }
       .awaitAll()
       .filterByQuery(searchQuery)
+      .filterByNetwork(filtersNetworks)
+      .filterByGenre(filtersGenres)
       .sortedWith(sorter.sort(sortOrder, sortType))
 
-    if (hiddenItems.isNotEmpty()) {
-      val filtersItem = loadFiltersItem(sortOrder, sortType)
+    if (hiddenItems.isNotEmpty() || filtersItem.hasActiveFilters()) {
       listOf(filtersItem) + hiddenItems
     } else {
       hiddenItems
@@ -67,10 +73,16 @@ class HiddenLoadShowsCase @Inject constructor(
   }
 
   private fun List<CollectionListItem.ShowItem>.filterByQuery(query: String) =
-    this.filter {
+    filter {
       it.show.title.contains(query, true) ||
         it.translation?.title?.contains(query, true) == true
     }
+
+  private fun List<CollectionListItem.ShowItem>.filterByNetwork(networks: List<String>) =
+    filter { networks.isEmpty() || it.show.network in networks }
+
+  private fun List<CollectionListItem.ShowItem>.filterByGenre(genres: List<String>) =
+    filter { genres.isEmpty() || it.show.genres.any { genre -> genre.lowercase() in genres } }
 
   private fun loadFiltersItem(
     sortOrder: SortOrder,
@@ -79,6 +91,8 @@ class HiddenLoadShowsCase @Inject constructor(
     return CollectionListItem.FiltersItem(
       sortOrder = sortOrder,
       sortType = sortType,
+      networks = settingsRepository.filters.hiddenShowsNetworks,
+      genres = settingsRepository.filters.hiddenShowsGenres,
       isUpcoming = false,
     )
   }
