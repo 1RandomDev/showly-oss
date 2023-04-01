@@ -32,8 +32,6 @@ class PremiumFragment : BaseFragment<PremiumViewModel>(R.layout.fragment_premium
   override val viewModel by viewModels<PremiumViewModel>()
 
   private val highlightItem by lazy { arguments?.getSerializable(ARG_ITEM) as? PremiumFeature }
-  private var lastClicked = 0L
-  private var clickCounter = 0L
 
   override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
     super.onViewCreated(view, savedInstanceState)
@@ -75,19 +73,9 @@ class PremiumFragment : BaseFragment<PremiumViewModel>(R.layout.fragment_premium
 
     val view = PurchaseItemView(requireContext()).apply {
       bindInApp("Single Payment", "$0.00")
-      onClick(false) {
-        val time = System.currentTimeMillis()
-        if (lastClicked != 0L && lastClicked + 500 > time) {
-          clickCounter++
-          if (clickCounter >= 7) {
-            Timber.d("Unlocked premium!")
-            viewModel.unlockAndFinish()
-          }
-        } else {
-          viewModel.sendErrorMessage()
-          clickCounter = 1
-        }
-        lastClicked = time
+      onClick {
+        //viewModel.unlockAndFinish()
+        viewModel.sendErrorMessage()
       }
     }
     premiumPurchaseItems.addView(view)
