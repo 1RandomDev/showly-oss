@@ -1,4 +1,5 @@
-![Version](https://img.shields.io/github/v/tag/1RandomDev/showly-oss?label=version)
+![Version](https://img.shields.io/github/v/tag/1RandomDev/showly-oss?style=flat&label=Version)
+![Downloads](https://img.shields.io/github/downloads/1RandomDev/showly-oss/total?style=flat&label=Downloads)
 
 # Showly OSS
 <img src="https://i.ibb.co/ChBN7Lg/ic-launcher.png" align="left" width="180" hspace="10" vspace="10" />
@@ -12,6 +13,12 @@ This fork gets rid of all proprietary tracking libraries.
     alt="Get it on GitHub"
     height="80"
     src="badge_github.png"/>
+</a>
+<a href="https://apt.izzysoft.de/fdroid/index/apk/com.michaldrabik.showly_oss">
+  <img
+    alt="Get it on IzzyOnDroid"
+    height="80"
+    src="https://gitlab.com/IzzyOnDroid/repo/-/raw/master/assets/IzzyOnDroid.png"/>
 </a>
 
 ## Screenshots
