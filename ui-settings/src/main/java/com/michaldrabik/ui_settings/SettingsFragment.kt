@@ -116,7 +116,7 @@ class SettingsFragment : BaseFragment<SettingsViewModel>(R.layout.fragment_setti
       renderWidgetsTransparency(widgetsTransparency)
       themeWidgets?.let { renderWidgetsTheme(it) }
       country?.let { renderCountry(it) }
-      dateFormat?.let { renderDateFormat(it) }
+      dateFormat?.let { renderDateFormat(it, language) }
       progressNextType?.let { renderProgressType(it) }
       isSigningIn.let { settingsTraktAuthorizeProgress.visibleIf(it) }
       isSignedInTrakt.let { isSignedIn ->
@@ -323,10 +323,15 @@ class SettingsFragment : BaseFragment<SettingsViewModel>(R.layout.fragment_setti
     }
   }
 
-  private fun renderDateFormat(format: AppDateFormat) {
+  private fun renderDateFormat(
+    format: AppDateFormat,
+    language: AppLanguage
+  ) {
     settingsDateFormat.run {
-      settingsDateFormatValue.text = DateFormatProvider.loadSettingsFormat(format).format(nowUtc().toLocalZone())
-      onClick { showDateFormatDialog(format) }
+      settingsDateFormatValue.text = DateFormatProvider
+        .loadSettingsFormat(format, language.code)
+        .format(nowUtc().toLocalZone())
+      onClick { showDateFormatDialog(format, language) }
     }
   }
 
@@ -442,7 +447,10 @@ class SettingsFragment : BaseFragment<SettingsViewModel>(R.layout.fragment_setti
       .show()
   }
 
-  private fun showDateFormatDialog(format: AppDateFormat) {
+  private fun showDateFormatDialog(
+    format: AppDateFormat,
+    language: AppLanguage
+  ) {
     val options = AppDateFormat.values()
     val selected = options.indexOf(format)
 
@@ -450,7 +458,7 @@ class SettingsFragment : BaseFragment<SettingsViewModel>(R.layout.fragment_setti
       .setBackground(ContextCompat.getDrawable(requireContext(), R.drawable.bg_dialog))
       .setSingleChoiceItems(
         options.map {
-          DateFormatProvider.loadSettingsFormat(it).format(nowUtc().toLocalZone())
+          DateFormatProvider.loadSettingsFormat(it, language.code).format(nowUtc().toLocalZone())
         }.toTypedArray(),
         selected
       ) { dialog, index ->
