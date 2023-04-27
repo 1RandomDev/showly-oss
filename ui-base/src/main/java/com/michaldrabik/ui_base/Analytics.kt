@@ -117,5 +117,9 @@ object Analytics {
 
   fun logUnsupportedSubscriptions() {}
 
-  fun logUnsupportedBilling() {}
+  fun logUnsupportedBilling(responseCode: Int) {}
+
+  fun logExportHistory(episodesCount: Int, moviesCount: Int, retryCount: Int) {}
+
+  fun logQuickExportHistory(episodesCount: Int, moviesCount: Int, retryCount: Int) {}
 }
