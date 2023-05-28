@@ -23,14 +23,12 @@ import com.michaldrabik.ui_model.IdTrakt
 import com.michaldrabik.ui_model.Image
 import com.michaldrabik.ui_model.ImageType
 import com.michaldrabik.ui_model.Movie
-import com.michaldrabik.ui_model.Person
 import com.michaldrabik.ui_model.RatingState
 import com.michaldrabik.ui_model.TraktRating
 import com.michaldrabik.ui_model.Translation
 import com.michaldrabik.ui_movie.MovieDetailsEvent.Finish
 import com.michaldrabik.ui_movie.MovieDetailsEvent.RemoveFromTrakt
 import com.michaldrabik.ui_movie.MovieDetailsEvent.RequestWidgetsUpdate
-import com.michaldrabik.ui_movie.MovieDetailsEvent.SaveOpenedPerson
 import com.michaldrabik.ui_movie.MovieDetailsUiState.FollowedState
 import com.michaldrabik.ui_movie.cases.MovieDetailsHiddenCase
 import com.michaldrabik.ui_movie.cases.MovieDetailsListsCase
@@ -180,15 +178,16 @@ class MovieDetailsViewModel @Inject constructor(
   }
 
   fun loadUserRating() {
+    if (!userManager.isAuthorized()) {
+      return
+    }
     viewModelScope.launch {
-      val isSignedIn = userManager.isAuthorized()
-      if (!isSignedIn) return@launch
       try {
-        ratingState.value = RatingState(rateLoading = true, rateAllowed = isSignedIn)
+        ratingState.value = RatingState(rateLoading = true, rateAllowed = true)
         val rating = ratingsCase.loadRating(movie)
-        ratingState.value = RatingState(rateLoading = false, rateAllowed = isSignedIn, userRating = rating ?: TraktRating.EMPTY)
+        ratingState.value = RatingState(rateLoading = false, rateAllowed = true, userRating = rating ?: TraktRating.EMPTY)
       } catch (error: Throwable) {
-        ratingState.value = RatingState(rateLoading = false, rateAllowed = isSignedIn)
+        ratingState.value = RatingState(rateLoading = false, rateAllowed = true)
         rethrowCancellation(error)
       }
     }
@@ -273,12 +272,6 @@ class MovieDetailsViewModel @Inject constructor(
       } finally {
         eventChannel.send(Finish)
       }
-    }
-  }
-
-  fun onPersonDetails(person: Person) {
-    viewModelScope.launch {
-      _parentEvents.emit(SaveOpenedPerson(person))
     }
   }
 
