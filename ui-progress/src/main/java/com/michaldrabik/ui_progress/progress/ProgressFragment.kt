@@ -27,6 +27,7 @@ import com.michaldrabik.ui_base.utilities.extensions.dimenToPx
 import com.michaldrabik.ui_base.utilities.extensions.doOnApplyWindowInsets
 import com.michaldrabik.ui_base.utilities.extensions.fadeIn
 import com.michaldrabik.ui_base.utilities.extensions.gone
+import com.michaldrabik.ui_base.utilities.extensions.navigateToSafe
 import com.michaldrabik.ui_base.utilities.extensions.onClick
 import com.michaldrabik.ui_base.utilities.extensions.visibleIf
 import com.michaldrabik.ui_model.SortOrder
@@ -51,13 +52,8 @@ import com.michaldrabik.ui_progress.main.RequestWidgetsUpdate
 import com.michaldrabik.ui_progress.progress.recycler.ProgressAdapter
 import com.michaldrabik.ui_progress.progress.recycler.ProgressListItem
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.android.synthetic.main.fragment_progress.progressEmptyView
-import kotlinx.android.synthetic.main.fragment_progress.progressOverscroll
-import kotlinx.android.synthetic.main.fragment_progress.progressOverscrollProgress
-import kotlinx.android.synthetic.main.fragment_progress.progressRecycler
-import kotlinx.android.synthetic.main.fragment_progress.progressTipItem
-import kotlinx.android.synthetic.main.layout_progress_empty.progressEmptyDiscoverButton
-import kotlinx.android.synthetic.main.layout_progress_empty.progressEmptyTraktButton
+import kotlinx.android.synthetic.main.fragment_progress.*
+import kotlinx.android.synthetic.main.layout_progress_empty.*
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -77,6 +73,8 @@ class ProgressFragment :
     const val OVERSCROLL_OFFSET = 225F
     const val OVERSCROLL_OFFSET_TRANSLATION = 4.5F
   }
+
+  override val navigationId = R.id.progressMainFragment
 
   private val parentViewModel by viewModels<ProgressMainViewModel>({ requireParentFragment() })
   override val viewModel by viewModels<ProgressViewModel>()
@@ -126,19 +124,24 @@ class ProgressFragment :
       itemClickListener = { requireMainFragment().openShowDetails(it.show) },
       itemLongClickListener = { requireMainFragment().openShowMenu(it.show) },
       headerClickListener = { viewModel.toggleHeaderCollapsed(it.type) },
-      detailsClickListener = { requireMainFragment().openEpisodeDetails(it.show, it.requireEpisode(), it.requireSeason()) },
-      checkClickListener = { viewModel.onEpisodeChecked(it) },
-      sortChipClickListener = { viewModel.loadSortOrder() },
-      upcomingChipClickListener = { viewModel.setUpcomingFilter(it) },
-      onHoldChipClickListener = { viewModel.setOnHoldFilter(it) },
+      detailsClickListener = {
+        requireMainFragment().openEpisodeDetails(
+          show = it.show,
+          episode = it.requireEpisode(),
+          season = it.requireSeason()
+        )
+      },
+      checkClickListener = viewModel::onEpisodeChecked,
+      sortChipClickListener = viewModel::loadSortOrder,
+      upcomingChipClickListener = viewModel::setUpcomingFilter,
+      onHoldChipClickListener = viewModel::setOnHoldFilter,
+      missingTranslationListener = viewModel::findMissingTranslation,
       missingImageListener = { item: ProgressListItem, force -> viewModel.findMissingImage(item, force) },
-      missingTranslationListener = { viewModel.findMissingTranslation(it) },
       listChangeListener = {
         requireMainFragment().resetTranslations()
         layoutManager?.scrollToPosition(0)
       }
-    ).apply {
-    }
+    )
     progressRecycler.apply {
       adapter = this@ProgressFragment.adapter
       layoutManager = this@ProgressFragment.layoutManager
@@ -250,7 +253,7 @@ class ProgressFragment :
       viewModel.setSortOrder(sortOrder, sortType, newTop)
     }
 
-    navigateTo(R.id.actionProgressFragmentToSortOrder, args)
+    navigateToSafe(R.id.actionProgressFragmentToSortOrder, args)
   }
 
   override fun onEnterSearch() {
@@ -312,7 +315,9 @@ class ProgressFragment :
     }
   }
 
-  override fun onScrollReset() = progressRecycler.smoothScrollToPosition(0)
+  override fun onScrollReset() {
+    progressRecycler?.smoothScrollToPosition(0)
+  }
 
   private fun requireMainFragment() = requireParentFragment() as ProgressMainFragment
 

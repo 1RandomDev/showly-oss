@@ -3,13 +3,14 @@ package com.michaldrabik.ui_premium.views
 import android.annotation.SuppressLint
 import android.content.Context
 import android.util.AttributeSet
+import android.view.LayoutInflater
 import android.view.ViewGroup.LayoutParams.MATCH_PARENT
 import android.view.ViewGroup.LayoutParams.WRAP_CONTENT
 import androidx.core.content.ContextCompat
 import com.google.android.material.card.MaterialCardView
 import com.michaldrabik.ui_base.utilities.extensions.colorStateListFromAttr
 import com.michaldrabik.ui_premium.R
-import kotlinx.android.synthetic.main.view_purchase_item.view.*
+import com.michaldrabik.ui_premium.databinding.ViewPurchaseItemBinding
 
 @SuppressLint("SetTextI18n")
 class PurchaseItemView : MaterialCardView {
@@ -18,7 +19,6 @@ class PurchaseItemView : MaterialCardView {
   constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(context, attrs, defStyleAttr)
 
   init {
-    inflate(context, R.layout.view_purchase_item, this)
     layoutParams = LayoutParams(MATCH_PARENT, WRAP_CONTENT)
     strokeWidth = 0
     setCardBackgroundColor(context.colorStateListFromAttr(R.attr.colorAccent))

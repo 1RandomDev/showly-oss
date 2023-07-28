@@ -20,7 +20,7 @@ import com.michaldrabik.ui_base.common.sheets.context_menu.ContextMenuBottomShee
 import com.michaldrabik.ui_base.common.sheets.ratings.RatingsBottomSheet
 import com.michaldrabik.ui_base.common.sheets.ratings.RatingsBottomSheet.Options.Operation
 import com.michaldrabik.ui_base.common.sheets.ratings.RatingsBottomSheet.Options.Type
-import com.michaldrabik.ui_base.common.views.exSearchLocalViewInput
+import com.michaldrabik.ui_base.utilities.events.Event
 import com.michaldrabik.ui_base.utilities.events.MessageEvent
 import com.michaldrabik.ui_base.utilities.extensions.add
 import com.michaldrabik.ui_base.utilities.extensions.dimenToPx
@@ -36,6 +36,7 @@ import com.michaldrabik.ui_base.utilities.extensions.launchAndRepeatStarted
 import com.michaldrabik.ui_base.utilities.extensions.navigateToSafe
 import com.michaldrabik.ui_base.utilities.extensions.nextPage
 import com.michaldrabik.ui_base.utilities.extensions.onClick
+import com.michaldrabik.ui_base.utilities.extensions.requireParcelable
 import com.michaldrabik.ui_base.utilities.extensions.showKeyboard
 import com.michaldrabik.ui_base.utilities.extensions.visible
 import com.michaldrabik.ui_base.utilities.extensions.visibleIf
@@ -96,6 +97,7 @@ class ProgressMainFragment :
     launchAndRepeatStarted(
       { viewModel.uiState.collect { render(it) } },
       { viewModel.messageFlow.collect { showSnack(it) } },
+      { viewModel.eventFlow.collect { handleEvent(it) } },
       doAfterLaunch = { viewModel.loadProgress() }
     )
   }
@@ -144,7 +146,7 @@ class ProgressMainFragment :
       isClickable = false
       onClick { openMainSearch() }
       onSettingsClickListener = { openSettings() }
-      onTraktClickListener = { navigateTo(R.id.actionProgressFragmentToTraktSyncFragment) }
+      onTraktClickListener = { openTraktSync() }
     }
 
     with(progressMainSearchLocalView) {
@@ -210,14 +212,14 @@ class ProgressMainFragment :
     progressMainTabs.fadeOut(duration = 200).add(animations)
     progressMainSideIcons.fadeOut(duration = 200).add(animations)
     progressMainPager.fadeOut(duration = 200) {
-      super.navigateTo(R.id.actionProgressFragmentToSearch, null)
+      navigateToSafe(R.id.actionProgressFragmentToSearch)
     }.add(animations)
   }
 
   fun openTraktSync() {
     hideNavigation()
     exitSearch()
-    navigateTo(R.id.actionProgressFragmentToTraktSyncFragment)
+    navigateToSafe(R.id.actionProgressFragmentToTraktSyncFragment)
   }
 
   fun openShowDetails(show: Show) {
@@ -225,7 +227,7 @@ class ProgressMainFragment :
     progressMainRoot.fadeOut(150) {
       if (findNavControl()?.currentDestination?.id == R.id.progressMainFragment) {
         val bundle = Bundle().apply { putLong(ARG_SHOW_ID, show.traktId) }
-        navigateTo(R.id.actionProgressFragmentToShowDetailsFragment, bundle)
+        navigateToSafe(R.id.actionProgressFragmentToShowDetailsFragment, bundle)
         exitSearch()
       } else {
         showNavigation()
@@ -245,24 +247,20 @@ class ProgressMainFragment :
     navigateToSafe(R.id.actionProgressFragmentToItemMenu, bundle)
   }
 
-  fun openEpisodeDetails(show: Show, episode: Episode, season: Season) {
+  fun openEpisodeDetails(
+    show: Show,
+    episode: Episode,
+    season: Season,
+  ) {
     setFragmentResultListener(REQUEST_EPISODE_DETAILS) { _, bundle ->
       when {
         bundle.containsKey(ACTION_EPISODE_TAB_SELECTED) -> {
-          val selectedEpisode = bundle.getParcelable<Episode>(ACTION_EPISODE_TAB_SELECTED)!!
+          val selectedEpisode = bundle.requireParcelable<Episode>(ACTION_EPISODE_TAB_SELECTED)
           openEpisodeDetails(show, selectedEpisode, season)
         }
       }
     }
-    val bundle = EpisodeDetailsBottomSheet.createBundle(
-      ids = show.ids,
-      episode = episode,
-      seasonEpisodesIds = null,
-      isWatched = false,
-      showButton = false,
-      showTabs = true
-    )
-    navigateToSafe(R.id.actionProgressFragmentToEpisodeDetails, bundle)
+    viewModel.onEpisodeDetails(show, episode)
   }
 
   fun openRateDialog(episodeBundle: EpisodeBundle) {
@@ -275,19 +273,19 @@ class ProgressMainFragment :
       viewModel.setWatchedEpisode(episodeBundle)
     }
     val bundle = RatingsBottomSheet.createBundle(episodeBundle.episode.ids.trakt, Type.EPISODE)
-    navigateTo(R.id.actionProgressFragmentToRating, bundle)
+    navigateToSafe(R.id.actionProgressFragmentToRating, bundle)
   }
 
   private fun openSettings() {
     hideNavigation()
     exitSearch()
-    navigateTo(R.id.actionProgressFragmentToSettingsFragment)
+    navigateToSafe(R.id.actionProgressFragmentToSettingsFragment)
   }
 
   private fun enterSearch() {
     resetTranslations()
     progressMainSearchLocalView.fadeIn(150)
-    with(exSearchLocalViewInput) {
+    with(progressMainSearchLocalView.binding.searchViewLocalInput) {
       setText("")
       doAfterTextChanged { viewModel.onSearchQuery(it?.toString()) }
       visible()
@@ -303,7 +301,7 @@ class ProgressMainFragment :
     childFragmentManager.fragments.forEach { (it as? OnSearchClickListener)?.onExitSearch() }
     resetTranslations()
     progressMainSearchLocalView.gone()
-    with(exSearchLocalViewInput) {
+    with(progressMainSearchLocalView.binding.searchViewLocalInput) {
       setText("")
       gone()
       hideKeyboard()
@@ -349,6 +347,22 @@ class ProgressMainFragment :
       CalendarMode.PRESENT_FUTURE -> progressMainCalendarIcon.setImageResource(R.drawable.ic_history)
       CalendarMode.RECENTS -> progressMainCalendarIcon.setImageResource(R.drawable.ic_calendar)
       else -> Unit
+    }
+  }
+
+  private fun handleEvent(event: Event<*>) {
+    when (event) {
+      is OpenEpisodeDetails -> {
+        val bundle = EpisodeDetailsBottomSheet.createBundle(
+          ids = event.show.ids,
+          episode = event.episode,
+          seasonEpisodesIds = null,
+          isWatched = event.isWatched,
+          showButton = false,
+          showTabs = true
+        )
+        navigateToSafe(R.id.actionProgressFragmentToEpisodeDetails, bundle)
+      }
     }
   }
 

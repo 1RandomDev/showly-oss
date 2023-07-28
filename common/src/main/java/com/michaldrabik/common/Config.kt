@@ -39,6 +39,7 @@ object Config {
   const val DEFAULT_LIST_VIEW_MODE = "LIST_NORMAL"
   const val HOST_ACTIVITY_NAME = "com.michaldrabik.showly_oss.ui.main.MainActivity"
 
+  const val SHOW_WHATS_NEW = true
   const val SHOW_TIPS_DEBUG = false
   const val SHOW_PREMIUM = true
 
@@ -53,5 +54,8 @@ object Config {
   val PEOPLE_CREDITS_CACHE_DURATION by lazy { DAYS.toMillis(7) }
   val PEOPLE_IMAGES_CACHE_DURATION by lazy { DAYS.toMillis(7) }
 
-  const val SHOW_WHATS_NEW = true
+  const val SPOILERS_HIDE_SYMBOL = "•"
+  const val SPOILERS_RATINGS_HIDE_SYMBOL = "•.•"
+  const val SPOILERS_RATINGS_VOTES_HIDE_SYMBOL = "•.• (•••••)"
+  val SPOILERS_REGEX = "\\S".toRegex()
 }

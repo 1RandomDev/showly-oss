@@ -4,7 +4,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.RecyclerView
 import com.michaldrabik.ui_base.BaseAdapter
-import com.michaldrabik.ui_search.views.ShowSearchView
+import com.michaldrabik.ui_search.views.SearchItemView
 
 class SearchAdapter(
   private val itemClickListener: (SearchListItem) -> Unit,
@@ -19,7 +19,7 @@ class SearchAdapter(
 
   override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
     BaseViewHolder(
-      ShowSearchView(parent.context).apply {
+      SearchItemView(parent.context).apply {
         itemClickListener = this@SearchAdapter.itemClickListener
         itemLongClickListener = this@SearchAdapter.itemLongClickListener
         missingImageListener = this@SearchAdapter.missingImageListener
@@ -28,6 +28,6 @@ class SearchAdapter(
 
   override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
     val item = asyncDiffer.currentList[position]
-    (holder.itemView as ShowSearchView).bind(item)
+    (holder.itemView as SearchItemView).bind(item)
   }
 }
