@@ -55,7 +55,7 @@ class SettingsNotificationsFragment :
 
   private fun renderSettings(settings: Settings) {
     with(binding) {
-      settingsPushNotificationsSwitch.isChecked = settings.pushNotificationsEnabled
+      //settingsPushNotificationsSwitch.isChecked = settings.pushNotificationsEnabled
       settingsShowsNotificationsSwitch.isChecked = settings.episodesNotificationsEnabled
       settingsWhenToNotifyValue.run {
         setText(settings.episodesNotificationsDelay.stringRes)

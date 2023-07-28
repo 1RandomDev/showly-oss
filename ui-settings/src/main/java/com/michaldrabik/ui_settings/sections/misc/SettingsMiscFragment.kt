@@ -1,8 +1,6 @@
 package com.michaldrabik.ui_settings.sections.misc
 
 import android.annotation.SuppressLint
-import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.viewModels
@@ -16,7 +14,6 @@ import com.michaldrabik.ui_base.utilities.viewBinding
 import com.michaldrabik.ui_settings.BuildConfig
 import com.michaldrabik.ui_settings.R
 import com.michaldrabik.ui_settings.databinding.FragmentSettingsMiscBinding
-import com.michaldrabik.ui_settings.helpers.PlayStoreHelper
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -38,11 +35,10 @@ class SettingsMiscFragment :
 
   private fun setupView() {
     with(binding) {
-      settingsContactDevs.onClick { openMailMessage() }
-      settingsRateApp.onClick { PlayStoreHelper.openPlayStorePage(requireActivity()) }
+      settingsContactDevs.onClick { openWebLink(Config.GITHUB_ISSUE_URL) }
       settingsDeleteCache.onClick { viewModel.deleteImagesCache(requireAppContext()) }
 
-      settingsTwitterIcon.onClick { openWebLink(Config.TWITTER_URL) }
+      settingsGithubIcon.onClick { openWebLink(Config.GITHUB_URL) }
       settingsTraktIcon.onClick { openWebLink(Config.TRAKT_URL) }
       settingsTmdbIcon.onClick { openWebLink(Config.TMDB_URL) }
       settingsJustWatchIcon.onClick { openWebLink(Config.JUST_WATCH_URL) }
@@ -61,19 +57,5 @@ class SettingsMiscFragment :
 
   private fun openWebLink(url: String) {
     openWebUrl(url) ?: showSnack(MessageEvent.Info(R.string.errorCouldNotFindApp))
-  }
-
-  private fun openMailMessage() {
-    with(binding) {
-      val id = "${settingsVersion.text}, ${settingsUserId.text}"
-      val intent = Intent(Intent.ACTION_SENDTO).apply {
-        data = Uri.parse("mailto:")
-        putExtra(Intent.EXTRA_EMAIL, arrayOf(Config.DEVELOPER_MAIL))
-        putExtra(Intent.EXTRA_SUBJECT, "Showly Message/Issue (Version: $id)")
-      }
-      if (intent.resolveActivity(requireActivity().packageManager) != null) {
-        startActivity(intent)
-      }
-    }
   }
 }

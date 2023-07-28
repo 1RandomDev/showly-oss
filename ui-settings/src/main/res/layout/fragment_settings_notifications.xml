@@ -19,39 +19,37 @@
     />
 
   <LinearLayout
-    android:id="@+id/settingsPushNotifications"
-    style="@style/Settings.ItemLayout"
-    app:layout_constraintBottom_toTopOf="@id/settingsShowsNotifications"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toBottomOf="@id/settingsCategoryNotifications"
-    >
+      android:id="@+id/settingsPushNotifications"
+      style="@style/Settings.ItemLayout"
+      android:alpha="0.5"
+      app:layout_constraintBottom_toTopOf="@id/settingsShowsNotifications"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@id/settingsCategoryNotifications">
 
     <TextView
-      style="@style/Settings.Title"
-      android:text="@string/textSettingsPushNotificationsTitle"
-      />
+        style="@style/Settings.Title"
+        android:text="@string/textSettingsPushNotificationsTitle" />
 
     <TextView
-      style="@style/Settings.Summary"
-      android:layout_marginEnd="@dimen/spaceHuge"
-      android:text="@string/textSettingsPushNotificationsSummary"
-      tools:text="@tools:sample/lorem/random"
-      />
+        style="@style/Settings.Summary"
+        android:layout_marginEnd="@dimen/spaceHuge"
+        android:text="@string/textSettingsPushNotificationsSummary"
+        tools:text="@tools:sample/lorem/random" />
 
   </LinearLayout>
 
   <com.google.android.material.switchmaterial.SwitchMaterial
-    android:id="@+id/settingsPushNotificationsSwitch"
-    android:layout_width="wrap_content"
-    android:layout_height="0dp"
-    android:layout_marginEnd="@dimen/spaceNormal"
-    android:checked="true"
-    android:clickable="false"
-    app:layout_constraintBottom_toBottomOf="@id/settingsPushNotifications"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintTop_toTopOf="@id/settingsPushNotifications"
-    />
+      android:id="@+id/settingsPushNotificationsSwitch"
+      android:layout_width="wrap_content"
+      android:layout_height="0dp"
+      android:layout_marginEnd="@dimen/spaceNormal"
+      android:checked="false"
+      android:clickable="false"
+      android:enabled="false"
+      app:layout_constraintBottom_toBottomOf="@id/settingsPushNotifications"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintTop_toTopOf="@id/settingsPushNotifications" />
 
   <LinearLayout
     android:id="@+id/settingsShowsNotifications"

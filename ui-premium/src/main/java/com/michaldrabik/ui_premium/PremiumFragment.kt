@@ -20,7 +20,6 @@ import com.michaldrabik.ui_navigation.java.NavigationArgs.ARG_ITEM
 import com.michaldrabik.ui_premium.databinding.FragmentPremiumBinding
 import com.michaldrabik.ui_premium.views.PurchaseItemView
 import dagger.hilt.android.AndroidEntryPoint
-
 @AndroidEntryPoint
 class PremiumFragment : BaseFragment<PremiumViewModel>(R.layout.fragment_premium) {
 
@@ -54,29 +53,33 @@ class PremiumFragment : BaseFragment<PremiumViewModel>(R.layout.fragment_premium
 
   private fun render(uiState: PremiumUiState) {
     uiState.run {
-      premiumProgress.visibleIf(isLoading)
-      premiumStatus.visibleIf(isPurchasePending)
-      renderPurchaseItems(isLoading)
-      onFinish?.let {
-        it.consume()?.let {
-          requireActivity().onBackPressed()
+      with(binding) {
+        premiumProgress.visibleIf(isLoading)
+        premiumStatus.visibleIf(isPurchasePending)
+        renderPurchaseItems(isLoading)
+        onFinish?.let {
+          it.consume()?.let {
+            requireActivity().onBackPressed()
+          }
         }
       }
     }
   }
 
   private fun renderPurchaseItems(isLoading: Boolean) {
-    premiumPurchaseItems.removeAllViews()
-    premiumPurchaseItems.visibleIf(!isLoading)
+    with(binding) {
+      premiumPurchaseItems.removeAllViews()
+      premiumPurchaseItems.visibleIf(!isLoading)
 
-    val view = PurchaseItemView(requireContext()).apply {
-      bindInApp("Single Payment", "$0.00")
-      onClick {
-        //viewModel.unlockAndFinish()
-        viewModel.sendErrorMessage()
+      val view = PurchaseItemView(requireContext()).apply {
+        bindInApp("Single Payment", "$0.00")
+        onClick {
+          //viewModel.unlockAndFinish()
+          viewModel.sendErrorMessage()
+        }
       }
+      premiumPurchaseItems.addView(view)
     }
-    premiumPurchaseItems.addView(view)
   }
 
   private fun handleEvent(event: Event<*>) {
