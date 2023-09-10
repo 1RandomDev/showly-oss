@@ -1,8 +1,8 @@
-package com.michaldrabik.showly2.ui.main.delegates
+package com.michaldrabik.showly_oss.ui.main.delegates
 
 import androidx.lifecycle.DefaultLifecycleObserver
-import com.michaldrabik.showly2.databinding.ActivityMainBinding
-import com.michaldrabik.showly2.ui.main.MainViewModel
+import com.michaldrabik.showly_oss.databinding.ActivityMainBinding
+import com.michaldrabik.showly_oss.ui.main.MainViewModel
 import com.michaldrabik.ui_base.utilities.TipsHost
 import com.michaldrabik.ui_base.utilities.extensions.gone
 import com.michaldrabik.ui_base.utilities.extensions.onClick

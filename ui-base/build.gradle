@@ -55,7 +55,6 @@ dependencies {
   api libs.android.work
   api libs.android.material
   api libs.android.dynamicanimation
-  api libs.android.annotation
   api libs.overscrollDecor
   api libs.timber
 

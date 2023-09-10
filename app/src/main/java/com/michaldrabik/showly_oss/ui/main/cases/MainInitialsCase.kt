@@ -14,6 +14,7 @@ import com.michaldrabik.repository.UserTraktManager
 import com.michaldrabik.repository.settings.SettingsRepository
 import com.michaldrabik.showly_oss.BuildConfig
 import com.michaldrabik.ui_base.common.AppCountry
+import com.michaldrabik.ui_base.utilities.extensions.withApiAtLeast
 import com.michaldrabik.ui_settings.helpers.AppLanguage
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.android.scopes.ViewModelScoped

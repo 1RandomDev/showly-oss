@@ -22,13 +22,13 @@ import com.michaldrabik.common.Mode
 import com.michaldrabik.common.Mode.MOVIES
 import com.michaldrabik.common.Mode.SHOWS
 import com.michaldrabik.repository.settings.SettingsRepository
-import com.michaldrabik.showly_oss.BuildConfig
 import com.michaldrabik.showly_oss.R
 import com.michaldrabik.showly_oss.databinding.ActivityMainBinding
 import com.michaldrabik.showly_oss.ui.BaseActivity
+import com.michaldrabik.showly_oss.ui.main.delegates.MainTipsDelegate
+import com.michaldrabik.showly_oss.ui.main.delegates.TipsDelegate
 import com.michaldrabik.showly_oss.ui.views.WhatsNewView
 import com.michaldrabik.showly_oss.utilities.deeplink.DeepLinkResolver
-import com.michaldrabik.ui_base.Analytics
 import com.michaldrabik.ui_base.Logger
 import com.michaldrabik.ui_base.common.OnShowsMoviesSyncedListener
 import com.michaldrabik.ui_base.common.OnTabReselectedListener
@@ -90,6 +90,8 @@ class MainActivity :
     setContentView(binding.root)
 
     //onUpdateDownloaded() TODO: Implement own updater from GitHub
+
+    registerTipsDelegate(viewModel, binding)
 
     setupViewModel()
     setupNavigation()
