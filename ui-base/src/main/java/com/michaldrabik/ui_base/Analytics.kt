@@ -3,8 +3,6 @@ package com.michaldrabik.ui_base
 import com.michaldrabik.ui_model.DiscoverFilters
 import com.michaldrabik.ui_model.Episode
 import com.michaldrabik.ui_model.Movie
-import com.michaldrabik.ui_model.MyMoviesSection
-import com.michaldrabik.ui_model.MyShowsSection
 import com.michaldrabik.ui_model.Show
 
 // Analytics removed, do nothing with log events
@@ -77,8 +75,6 @@ object Analytics {
 
   fun logSettingsRecentlyAddedAmount(amount: Long) {}
 
-  fun logSettingsPushNotifications(enabled: Boolean) {}
-
   fun logSettingsAnnouncements(enabled: Boolean) {}
 
   fun logSettingsSpecialSeasons(enabled: Boolean) {}
@@ -108,10 +104,6 @@ object Analytics {
   fun logSettingsProgressType(value: String) {}
 
   fun logSettingsDateFormat(value: String) {}
-
-  fun logSettingsMyShowsSection(section: MyShowsSection, enabled: Boolean) {}
-
-  fun logSettingsMyMoviesSection(section: MyMoviesSection, enabled: Boolean) {}
 
   fun logInAppUpdate(versionName: String, versionCode: Long) {}
 

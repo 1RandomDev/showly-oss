@@ -43,7 +43,7 @@ object Config {
   const val SHOW_TIPS_DEBUG = false
   const val SHOW_PREMIUM = true
 
-  val MY_SHOWS_RECENTS_OPTIONS = arrayOf(2, 4, 6, 8)
+  val MY_SHOWS_RECENTS_OPTIONS = arrayOf(0, 2, 4, 6, 8)
   val DISCOVER_SHOWS_CACHE_DURATION by lazy { HOURS.toMillis(12) }
   val DISCOVER_MOVIES_CACHE_DURATION by lazy { HOURS.toMillis(12) }
   val RELATED_CACHE_DURATION by lazy { DAYS.toMillis(7) }

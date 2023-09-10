@@ -72,6 +72,7 @@ class MainViewModel @Inject constructor(
     val isInitialRun = initCase.isInitialRun()
     if (isInitialRun) {
       initCase.setInitialRun(false)
+      initCase.setInitialNotifications()
       initCase.setInitialCountry()
     }
 

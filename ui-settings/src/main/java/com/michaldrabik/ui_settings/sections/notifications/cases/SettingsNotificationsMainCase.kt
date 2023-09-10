@@ -20,20 +20,12 @@ class SettingsNotificationsMainCase @Inject constructor(
     settingsRepository.load()
   }
 
-  suspend fun enablePushNotifications(enable: Boolean) {
-    val settings = settingsRepository.load()
-    settings.let {
-      val new = it.copy(pushNotificationsEnabled = enable)
-      settingsRepository.update(new)
-    }
-    // Do nothing
-  }
-
-  suspend fun enableAnnouncements(enable: Boolean) {
+  suspend fun enableNotifications(enable: Boolean) {
     val settings = settingsRepository.load()
     settings.let {
       val new = it.copy(episodesNotificationsEnabled = enable)
       settingsRepository.update(new)
+
       announcementManager.refreshShowsAnnouncements()
       announcementManager.refreshMoviesAnnouncements()
     }

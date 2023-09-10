@@ -66,6 +66,15 @@ class MainInitialsCase @Inject constructor(
     }
   }
 
+  suspend fun setInitialNotifications() {
+    withApiAtLeast(33) {
+      val settings = settingsRepository.load()
+      settings.let {
+        settingsRepository.update(it.copy(episodesNotificationsEnabled = false))
+      }
+    }
+  }
+
   fun setLanguage(appLanguage: AppLanguage) {
     settingsRepository.language = appLanguage.code
     val locales = LocaleListCompat.forLanguageTags(appLanguage.code)

@@ -2,7 +2,6 @@ package com.michaldrabik.ui_model
 
 data class Settings(
   val isInitialRun: Boolean,
-  val pushNotificationsEnabled: Boolean,
   val episodesNotificationsEnabled: Boolean,
   val episodesNotificationsDelay: NotificationDelay,
   val watchlistShowsSortBy: SortOrder,
@@ -14,11 +13,6 @@ data class Settings(
   val myShowsRunningIsCollapsed: Boolean,
   val myShowsIncomingIsCollapsed: Boolean,
   val myShowsEndedIsCollapsed: Boolean,
-  val myShowsRunningIsEnabled: Boolean,
-  val myShowsIncomingIsEnabled: Boolean,
-  val myShowsEndedIsEnabled: Boolean,
-  val myShowsRecentIsEnabled: Boolean,
-  val myMoviesRecentIsEnabled: Boolean,
   val myRecentsAmount: Int,
   val showAnticipatedShows: Boolean,
   val discoverFilterGenres: List<Genre>,
@@ -47,7 +41,6 @@ data class Settings(
   companion object {
     fun createInitial() = Settings(
       isInitialRun = true,
-      pushNotificationsEnabled = true,
       episodesNotificationsEnabled = true,
       episodesNotificationsDelay = NotificationDelay.WHEN_AVAILABLE,
       myShowsFinishedSortBy = SortOrder.NAME,
@@ -57,11 +50,6 @@ data class Settings(
       myShowsEndedIsCollapsed = true,
       myShowsIncomingIsCollapsed = true,
       myShowsRunningIsCollapsed = true,
-      myShowsEndedIsEnabled = true,
-      myShowsIncomingIsEnabled = true,
-      myShowsRunningIsEnabled = true,
-      myShowsRecentIsEnabled = true,
-      myMoviesRecentIsEnabled = true,
       myRecentsAmount = 4,
       watchlistShowsSortBy = SortOrder.NAME,
       archiveShowsSortBy = SortOrder.NAME,
