@@ -20,6 +20,7 @@ import com.michaldrabik.ui_navigation.java.NavigationArgs.ARG_ITEM
 import com.michaldrabik.ui_premium.databinding.FragmentPremiumBinding
 import com.michaldrabik.ui_premium.views.PurchaseItemView
 import dagger.hilt.android.AndroidEntryPoint
+
 @AndroidEntryPoint
 class PremiumFragment : BaseFragment<PremiumViewModel>(R.layout.fragment_premium) {
 

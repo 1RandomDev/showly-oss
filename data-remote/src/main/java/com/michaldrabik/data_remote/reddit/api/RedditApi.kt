@@ -14,12 +14,15 @@ internal class RedditApi(
     token: String,
     limit: Int,
     pages: Int,
-  ): List<RedditItem> =
-    listingApi.fetchTelevision(token, limit, pages).filterNot { it.is_self }
+  ): List<RedditItem> {
+    return listingApi.fetchTelevision(token, limit, pages).filterNot { it.is_self }
+  }
 
   override suspend fun fetchMoviesItems(
     token: String,
     limit: Int,
     pages: Int,
-  ) = listingApi.fetchMovies(token, limit, pages).filterNot { it.is_self }
+  ): List<RedditItem> {
+    return listingApi.fetchMovies(token, limit, pages).filterNot { it.is_self }
+  }
 }

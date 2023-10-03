@@ -41,13 +41,22 @@ android {
 
   buildTypes {
     debug {
+      applicationIdSuffix '.debug'
+      versionNameSuffix '-debug'
       minifyEnabled true
       proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-      versionNameSuffix '-debug'
+      manifestPlaceholders = [
+          appIcon: "@mipmap/ic_launcher_gray",
+          appIconRound: "@mipmap/ic_launcher_round_gray"
+      ]
     }
     release {
       minifyEnabled true
       proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+      manifestPlaceholders = [
+              appIcon: "@mipmap/ic_launcher",
+              appIconRound: "@mipmap/ic_launcher_round"
+      ]
     }
   }
 

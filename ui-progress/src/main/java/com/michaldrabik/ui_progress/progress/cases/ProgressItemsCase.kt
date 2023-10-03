@@ -50,21 +50,17 @@ class ProgressItemsCase @Inject constructor(
   private val sorter: ProgressItemsSorter,
 ) {
 
-  companion object {
-    private const val UPCOMING_MONTHS_LIMIT = 3L
-  }
-
   suspend fun loadItems(searchQuery: String): List<ProgressListItem> =
     withContext(dispatchers.IO) {
       val nowUtc = nowUtc()
 
-      val settings = settingsRepository.load()
       val dateFormat = dateFormatProvider.loadFullHourFormat()
       val language = translationsRepository.getLanguage()
-      val upcomingEnabled = settings.progressUpcomingEnabled
-      val upcomingLimit = nowUtc.plusMonths(UPCOMING_MONTHS_LIMIT).toMillis()
       val nextEpisodeType = settingsRepository.progressNextEpisodeType
-      val filtersItem = loadFiltersItem(upcomingEnabled)
+      val progressUpcomingDays = settingsRepository.progressUpcomingDays
+      val isUpcomingEnabled = progressUpcomingDays > 0
+      val upcomingLimit = nowUtc.plusDays(progressUpcomingDays).toMillis()
+      val filtersItem = loadFiltersItem(isUpcomingEnabled)
       val spoilers = settingsRepository.spoilers.getAll()
 
       val items = showsRepository.myShows.loadAll()
@@ -99,7 +95,7 @@ class ProgressItemsCase @Inject constructor(
         }.awaitAll()
 
       val validItems = items
-        .filter { if (upcomingEnabled) true else !it.isUpcoming }
+        .filter { if (isUpcomingEnabled) true else !it.isUpcoming }
         .filter { it.episode?.firstAired != null }
 
       val filledItems = validItems

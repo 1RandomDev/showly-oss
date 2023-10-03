@@ -103,13 +103,9 @@ object Analytics {
 
   fun logSettingsProgressType(value: String) {}
 
-  fun logSettingsDateFormat(value: String) {}
-
   fun logInAppUpdate(versionName: String, versionCode: Long) {}
 
   fun logUnsupportedSubscriptions() {}
-
-  fun logUnsupportedBilling(responseCode: Int) {}
 
   fun logExportHistory(episodesCount: Int, moviesCount: Int, retryCount: Int) {}
 
