@@ -8,6 +8,7 @@ import com.michaldrabik.repository.TranslationsRepository
 import com.michaldrabik.repository.images.ShowImagesProvider
 import com.michaldrabik.repository.settings.SettingsRepository
 import com.michaldrabik.repository.shows.ShowsRepository
+import com.michaldrabik.ui_discover.helpers.itemtype.ImageTypeProvider
 import com.michaldrabik.ui_discover.recycler.DiscoverListItem
 import com.michaldrabik.ui_model.DiscoverFilters
 import com.michaldrabik.ui_model.DiscoverSortOrder
@@ -25,18 +26,14 @@ import kotlinx.coroutines.withContext
 import javax.inject.Inject
 
 @ViewModelScoped
-class DiscoverShowsCase @Inject constructor(
+internal class DiscoverShowsCase @Inject constructor(
   private val dispatchers: CoroutineDispatchers,
   private val showsRepository: ShowsRepository,
+  private val imageTypeProvider: ImageTypeProvider,
   private val imagesProvider: ShowImagesProvider,
   private val translationsRepository: TranslationsRepository,
   private val settingsRepository: SettingsRepository,
 ) {
-
-  companion object {
-    private const val TWITTER_AD_POSITION = 14
-    private const val PREMIUM_AD_POSITION = 29
-  }
 
   suspend fun isCacheValid() =
     withContext(dispatchers.IO) {
@@ -95,7 +92,7 @@ class DiscoverShowsCase @Inject constructor(
     myShowsIds: List<Long>,
     watchlistShowsIds: List<Long>,
     hiddenShowsIds: List<Long>,
-    filters: DiscoverFilters?
+    filters: DiscoverFilters?,
   ) = coroutineScope {
     val language = translationsRepository.getLanguage()
     val collectionIds = myShowsIds + watchlistShowsIds + hiddenShowsIds
@@ -108,11 +105,7 @@ class DiscoverShowsCase @Inject constructor(
       .sortedBy(filters?.feedOrder ?: HOT)
       .mapIndexed { index, show ->
         async {
-          val itemType = when (index) {
-            in (0..500 step 14) -> ImageType.FANART_WIDE
-            in (5..500 step 14), in (9..500 step 14) -> ImageType.FANART
-            else -> ImageType.POSTER
-          }
+          val itemType = imageTypeProvider.getImageType(index)
           val image = imagesProvider.findCachedImage(show, itemType)
           val translation = loadTranslation(language, itemType, show)
           DiscoverListItem(
@@ -135,11 +128,11 @@ class DiscoverShowsCase @Inject constructor(
     val isTimePassed = (nowUtcMillis() - settingsRepository.installTimestamp) > ConfigVariant.TWITTER_AD_DELAY
     if (!isEnabled || !isTimePassed) return
 
-    val premiumAd = DiscoverListItem(Show.EMPTY, Image.createUnknown(ImageType.TWITTER))
-    if (items.size >= TWITTER_AD_POSITION) {
-      items.add(TWITTER_AD_POSITION, premiumAd)
+    val twitterAd = DiscoverListItem(Show.EMPTY, Image.createUnknown(ImageType.TWITTER))
+    if (items.size >= imageTypeProvider.twitterAdPosition) {
+      items.add(imageTypeProvider.twitterAdPosition, twitterAd)
     } else {
-      items.add(premiumAd)
+      items.add(twitterAd)
     }
   }
 
@@ -149,8 +142,12 @@ class DiscoverShowsCase @Inject constructor(
     if (isPremium || !isTimePassed) return
 
     val premiumAd = DiscoverListItem(Show.EMPTY, Image.createUnknown(ImageType.PREMIUM))
-    if (items.size >= PREMIUM_AD_POSITION) {
-      items.add(PREMIUM_AD_POSITION, premiumAd)
+    var position = imageTypeProvider.premiumAdPosition
+    if (items.size >= position) {
+      if (items.any { it.image.type == ImageType.TWITTER }) {
+        position++
+      }
+      items.add(position, premiumAd)
     } else if (items.isNotEmpty()) {
       items.add(premiumAd)
     }

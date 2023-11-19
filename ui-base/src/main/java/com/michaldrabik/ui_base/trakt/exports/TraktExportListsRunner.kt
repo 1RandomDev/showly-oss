@@ -90,6 +90,8 @@ class TraktExportListsRunner @Inject constructor(
   }
 
   private suspend fun exportNewList(localList: CustomList) {
+    delay(TRAKT_LIMIT_DELAY_MS)
+
     val listNet = remoteSource.postCreateList(localList.name, localList.description)
     Timber.d("List created in Trakt.")
 
