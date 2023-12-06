@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+  <string name="textStatistics">Thống kê</string>
+  <string name="textStatisticsEmpty">Ít nhất một chương trình phải có trong <b>Chương trình của tôi</b>\ntrước khi số liệu thống kê có thể được hiển thị.</string>
+  <string name="textStatisticsMostWatchedShows">Chương trình được xem nhiều nhất</string>
+  <string name="textStatisticsTotalTimeSpent">Tổng thời gian đã xem</string>
+  <string name="textStatisticsTotalTimeItIs">và đó là</string>
+  <string name="textStatisticsTotalTimeSpentHours">%s giờ</string>
+  <string name="textStatisticsTotalTimeSpentMinutes">%s phút</string>
+  <string name="textStatisticsTotalTimeSpentDays">tức là khoảng %s ngày.</string>
+  <string name="textStatisticsTotalEpisodes">Tổng số tập đã xem</string>
+  <string name="textStatisticsTotalEpisodesCount">%s tập</string>
+  <string name="textStatisticsTotalEpisodesShowsCount">trải rộng trên %s chương trình.</string>
+  <string name="textStatisticsTopGenre">Thể loại hàng đầu</string>
+  <string name="textStatisticsTopGenreSubValue">dường như là điều bạn thích. Nhấn để xem thêm.</string>
+  <string name="textStatisticsTopGenreSubValue2">có vẻ như là điều bạn thích.</string>
+  <string name="textStatisticsShowMore">Hiển thị thêm</string>
+  <string name="textStatisticsRatings">Được xếp hạng gần đây</string>
+  <string name="textStatisticsHours">Giờ</string>
+  <string name="textStatisticsEpisodes">Các tập</string>
+  <string name="textStatisticsSeasons">Các mùa</string>
+
+</resources>

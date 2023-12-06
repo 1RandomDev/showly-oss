@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string name="textOk">OK</string>
+  <string name="textYes">Có</string>
+  <string name="textNo">Không</string>
+  <string name="textApply">Áp dụng</string>
+  <string name="textCancel">Hủy</string>
+  <string name="textClose">Đóng</string>
+  <string name="textNotNow">Không phải bây giờ</string>
+  <string name="textNew">Mới</string>
+  <string name="textSelect">Chọn</string>
+  <string name="textHot">Nóng</string>
+  <string name="textSubmit">Gửi</string>
+  <string name="textHide">Ẩn</string>
+  <string name="textRemove">Loại bỏ</string>
+  <string name="textEmptyResults">Không có kết quả nào…</string>
+  <string name="textSearchFor">Tìm kiếm</string>
+  <string name="textTip">Mẹo:</string>
+  <string name="textSeason">Mùa %1$d</string>
+  <string name="textSpecials">Đặc biệt</string>
+  <string name="textEpisode">Tập %1$d</string>
+  <string name="textSeasonEpisode">M.%02d T.%02d</string>
+  <string name="textSortBy">Sắp xếp theo:</string>
+  <string name="textSpoilersWarning">Nhận xét này có tiết lộ nội dung.\nNhấn để đọc.</string>
+  <string name="textCommentedOn">Được bình luận bởi %s</string>
+  <string name="textNetwork">%1$s (%2$s)</string>
+  <string name="textNetworks" comment="TV network like HBO, AMC, Showtime, Disney etc.">Mạng:</string>
+  <string name="textGenres">Thể loại:</string>
+  <string name="textTba" translatable="false">TBA</string>
+  <string name="textShows">Chương trình</string>
+  <string name="textMovies">Phim</string>
+  <string name="textLists">Danh sách</string>
+  <string name="textMinutesShort">phút</string>
+  <string name="textActorRole" translatable="false">%s\n(%s)</string>
+  <string name="textNoDescription">Tổng quan không có sẵn.</string>
+  <string name="textPleaseWait">Xin vui lòng đợi…</string>
+  <string name="textRate">Xếp hạng</string>
+  <string name="textLink">Liên kết</string>
+  <string name="textDisabled">Đã tắt</string>
+  <string name="textRateSaved">Đánh giá của bạn đã được lưu.</string>
+  <string name="textRateRemoved">Đánh giá của bạn đã bị xóa.</string>
+  <string name="textCopiedToClipboard" translatable="false">Đã sao chép vào clipboard</string>
+  <string name="textDays">%1$d ngày</string>
+
+  <plurals name="textEpisodesLeft" comment="Number of episodes left to see">
+    <item quantity="one">%d còn lại</item>
+    <item quantity="other">%d còn lại</item>
+  </plurals>
+
+  <string name="textPeople">Mọi người:</string>
+  <string name="textDirecting">Chỉ đạo</string>
+  <string name="textDirector">Đạo diễn</string>
+  <string name="textWriting">Tác giả</string>
+  <string name="textScreenplay">Kịch bản</string>
+  <string name="textSound">Âm thanh</string>
+  <string name="textMusic">Âm nhạc</string>
+  <string name="textActing">Diễn xuất</string>
+
+  <string name="textSetCustomImages">Hình ảnh tùy chỉnh</string>
+  <string name="textSetCustomImagesDescription">Chọn áp phích và fanart của riêng bạn để sử dụng trên ứng dụng.</string>
+
+  <string name="textAiredAlready">Đã phát sóng</string>
+  <string name="textAirsNow">Đang phát sóng</string>
+
+  <plurals name="textDaysToAir">
+    <item quantity="one">Phát sóng vào ngày mai</item>
+    <item quantity="other">Phát sóng sau %d ngày</item>
+  </plurals>
+
+  <plurals name="textHoursToAir">
+    <item quantity="one">Phát sau 1 giờ</item>
+    <item quantity="other">Phát sóng sau %d giờ</item>
+  </plurals>
+
+  <plurals name="textMinutesToAir">
+    <item quantity="one">Đang phát sóng</item>
+    <item quantity="other">Sẽ phát sóng sau %d phút</item>
+  </plurals>
+
+  <plurals name="textTraktQuickSyncComplete">
+    <item quantity="one">1 mục đã được đồng bộ hóa thành công .</item>
+    <item quantity="other">%d mục đã được đồng bộ hóa thành công.</item>
+  </plurals>
+
+  <string name="textToday">Hôm nay</string>
+  <string name="textTomorrow">Ngày mai</string>
+  <string name="textThisWeek">Tuần này</string>
+  <string name="textNextWeek">Tuần tới</string>
+  <string name="textThisMonth">Tháng này</string>
+  <string name="textNextMonth">Tháng tới</string>
+  <string name="textThisYear">Năm nay</string>
+  <string name="textNextYear">Năm tới</string>
+  <string name="textLater">Sau</string>
+  <string name="textYesterday">Hôm qua</string>
+  <string name="textLast7Days">7 ngày qua</string>
+  <string name="textLast30Days">30 ngày qua</string>
+  <string name="textLast90Days">90 ngày qua</string>
+
+  <string name="textNewEpisodeAvailable">Hiện đã có tập mới!</string>
+  <string name="textNewEpisodeAvailableSoon">Tập mới sẽ sớm có!</string>
+  <string name="textNewSeasonAvailable">Hiện đã có mùa mới!</string>
+  <string name="textNewSeasonAvailableSoon">Mùa giải mới sẽ sớm có!</string>
+  <string name="textNewMovieAvailable">Phim đã được phát hành!</string>
+
+  <string name="textTraktSync">Đồng bộ hóa Trakt.tv</string>
+  <string name="textTraktSyncComplete">Hoàn tất đồng bộ hóa thành công.</string>
+  <string name="textTraktSyncRunning">Đang chạy…</string>
+  <string name="textTraktSyncError">Đồng bộ hóa Trakt.tv thất bại.</string>
+  <string name="textTraktSyncErrorFull">Đồng bộ hóa Trakt.tv thất bại. Vui lòng kiểm tra kết nối Internet của bạn và thử lại hoặc liên hệ với chúng tôi nếu điều này vẫn tiếp diễn.</string>
+  <string name="textTraktQuickSyncError">Đồng bộ hóa tức thì thất bại.</string>
+  <string name="textTraktQuickSyncErrorFull">Đồng bộ hóa tức thì thất bại. Chúng tôi sẽ thử lại vào lần tới khi bạn mở ứng dụng. Vui lòng kiểm tra kết nối internet của bạn.</string>
+  <string name="textTraktNotificationsRationale">Vui lòng cấp cho ứng dụng quyền hiển thị thông tin về tiến trình và kết quả đồng bộ hóa.\n\nBạn có muốn thực hiện việc đó ngay bây giờ không?</string>
+
+  <string name="textRemoveFromTrakt">Loại khỏi Trakt.tv?</string>
+  <string name="textRemoveFromTraktHidden">Bạn có muốn loại mục này khỏi tài khoản Trakt.tv \'Mục ẩn\' của mình không?</string>
+  <string name="textRemoveFromTraktWatchlist">Bạn có muốn loại mục này khỏi tài khoản Trakt.tv \'Danh sách theo dõi\' của mình không?</string>
+  <string name="textRemoveFromTraktProgress">Bạn có muốn loại mục này khỏi tài khoản Trakt.tv \'Tiến độ\' của mình không?</string>
+
+  <string name="textAddToMyShows">Thêm vào chương trình của tôi</string>
+  <string name="textAddToMyMovies">Thêm vào Phim của tôi</string>
+  <string name="textAddToWatchlist">Thêm vào Danh sách theo dõi</string>
+  <string name="textAddToHidden">Thêm vào Ẩn</string>
+  <string name="textMoveToMyShows">Di chuyển tới Chương trình của tôi</string>
+  <string name="textMoveToMyMovies">Di chuyển tới Phim của tôi</string>
+  <string name="textMoveToWatchlist">Di chuyển đến Danh sách theo dõi</string>
+  <string name="textMoveToHidden">Di chuyển đến Ẩn</string>
+  <string name="textRemoveFromMyShows">Loại khỏi Chương trình của tôi</string>
+  <string name="textRemoveFromMyMovies">Loại khỏi Phim của tôi</string>
+  <string name="textRemoveFromWatchlist">Loại khỏi Danh sách theo dõi</string>
+  <string name="textRemoveFromHidden">Loại khỏi Ẩn</string>
+  <string name="textWatchlist">Danh sách theo dõi</string>
+  <string name="textWatchlistIncoming">Sắp tới</string>
+  <string name="textNewAlwaysAtTop">Các tập mới luôn trước tiên</string>
+
+  <string name="textPremium" translatable="false">Showly Premium</string>
+  <string name="textPremiumAd">Trở thành người ủng hộ và có quyền truy cập vào các tính năng thưởng! Bấm vào để xem thêm.</string>
+
+  <string name="menuPin">Ghim lên đầu</string>
+  <string name="menuUnpin">Bỏ ghim khỏi đầu</string>
+  <string name="menuAddOnHold" comment="This is a button for Progress subsection. It will contain pending shows marked by user.">Ghim vào \'đang chờ\'</string>
+  <string name="menuRemoveOnHold" comment="This is a button for Progress subsection. It will contain pending shows marked by user.">Bỏ ghim khỏi \'đang chờ\'</string>
+
+  <string name="errorGeneral">Ôpss… Đã xảy ra lỗi.\nVui lòng liên hệ với chúng tôi nếu điều này vẫn tiếp diễn.</string>
+  <string name="errorAuthorization">Ủy quyển thất bại. Vui lòng liên hệ với chúng tôi nếu điều này vẫn tiếp diễn.</string>
+  <string name="errorTraktAuthorization">Ủy quyền tài khoản Trakt thất bại.\nVui lòng đăng nhập và thử lại.</string>
+  <string name="errorSeasonsNotLoaded">Vui lòng đợi dữ liệu các mùa được tải.</string>
+  <string name="errorEpisodeNotAired">Tập này chưa được phát sóng.</string>
+  <string name="errorCouldNotLoadDiscover">Chúng tôi không thể tải trang khám phá vào lúc này.\nVui lòng liên hệ với chúng tôi nếu điều này vẫn tiếp diễn.</string>
+  <string name="errorMalformedShow">Có vẻ như chương trình này không còn tồn tại trong cơ sở dữ liệu Trakt.tv hoặc là một trùng lặp.\n\nNhấn \'OK\' để xóa nó khỏi ứng dụng.</string>
+  <string name="errorMalformedMovie">Có vẻ như phim này không còn tồn tại trong cơ sở dữ liệu Trakt.tv hoặc là một trùng lặp.\n\nNhấn \'OK\' để xóa phim khỏi ứng dụng.</string>
+  <string name="errorCouldNotLoadShow">Chúng tôi không thể tải thông tin chi tiết về chương trình này vào lúc này.\nVui lòng liên hệ với chúng tôi nếu điều này vẫn tiếp diễn.</string>
+  <string name="errorCouldNotLoadMovie">Chúng tôi không thể tải thông tin chi tiết về phim này vào lúc này.\nVui lòng liên hệ với chúng tôi nếu sự cố này vẫn tiếp diễn.</string>
+  <string name="errorCouldNotLoadSearchResults">Chúng tôi không thể tải kết quả tìm kiếm vào lúc này.\nVui lòng liên hệ với chúng tôi nếu điều này vẫn tiếp diễn.</string>
+  <string name="errorNoInternetConnection">Không có mạng. Vui lòng kiểm tra kết nối của bạn.</string>
+  <string name="errorTraktSyncGeneral">Lỗi đồng bộ hóa Trakt.tv.\nVui lòng kiểm tra kết nối Internet của bạn và thử lại.</string>
+  <string name="errorTraktLocked">Tài khoản Trakt.tv của bạn hiện bị khóa.\nVui lòng liên hệ với bộ phận hỗ trợ Trakt.tv tại https://support.trakt.tv/ để mở khóa tài khoản của bạn.</string>
+  <string name="errorBillingProductsNotAvailable" translatable="false">Chúng tôi không thể tải các tùy chọn mua hàng. Hãy đảm bảo ứng dụng Cửa hàng Google Play của bạn được cập nhật lên phiên bản mới nhất và thử lại.</string>
+  <string name="errorSubscriptionsNotAvailable">Đăng ký Google Play không khả dụng trên thiết bị này.</string>
+  <string name="errorCouldNotFindApp" translatable="false">Rất tiếc, chúng tôi không thể tìm thấy ứng dụng trên thiết bị này có thể xử lý liên kết này.</string>
+  <string name="errorAccountListsLimitsReached" translatable="false">Rất tiếc, bạn đã đạt đến giới hạn tài khoản Trakt cho danh sách cá nhân!\n\nVui lòng liên hệ với chúng tôi nếu bạn cần thêm trợ giúp.</string>
+  <string name="errorTraktSyncListsLimitsReached" translatable="false">Bạn đã đạt đến giới hạn tài khoản Trakt cho danh sách cá nhân! Không phải tất cả danh sách cá nhân của bạn đều được đồng bộ hóa.</string>
+  <string name="errorTraktSyncWatchlistLimitsReached" translatable="false">Bạn đã đạt đến giới hạn tài khoản Trakt cho các mục trong danh sách theo dõi! Vui lòng liên hệ với chúng tôi nếu bạn cần thêm trợ giúp.</string>
+
+</resources>

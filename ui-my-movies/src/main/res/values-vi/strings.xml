@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string name="menuMyMovies">Phim của tôi</string>
+  <string name="menuWatchlistMovies">Danh sách theo dõi</string>
+  <string name="menuHidden">Ẩn</string>
+
+  <string name="textMyMoviesEmpty">Bộ sưu tập phim của bạn hiện trống.\n\nTruy cập tab <b>Khám phá</b> để thêm phim đầu tiên của bạn.</string>
+  <string name="textWatchlistMoviesEmpty"><b>Danh sách theo dõi</b> của bạn hiện trống.\n\nTruy cập tab <b>Khám phá</b> để thêm phim bạn muốn xem trong tương lai.</string>
+  <string name="textHiddenEmpty">Danh sách <b>Ẩn</b> của bạn hiện trống.\n\n<b>Ẩn</b> là danh sách các mục mà bạn không quan tâm.\n\nCác mục ẩn sẽ không còn xuất hiện trong <b >Tiến độ</b>, <b>Khám phá</b> và các mục khác.</string>
+</resources>

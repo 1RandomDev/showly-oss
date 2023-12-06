@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string name="textTraktLoginSuccess">Bạn đã được ủy quyền thành công.</string>
+  <string name="textTraktLogoutSuccess">Bạn đã đăng xuất.</string>
+  <string name="textImagesCacheCleared">Bộ nhớ đệm hình ảnh đã được dọn dẹp.</string>
+  <string name="textTurnOff">Tắt</string>
+
+  <string name="textSettings">Thiết đặt</string>
+  <string name="textSettingsTrakt">Trakt.tv</string>
+  <string name="textSettingsTraktAuthorizeTitle">Ủy quyền của Trakt.tv</string>
+  <string name="textSettingsTraktAuthorizeSummarySignIn">Nhấp để đăng nhập vào tài khoản Trakt.tv của bạn.</string>
+  <string name="textSettingsTraktAuthorizeSummarySignOut">Đã đăng nhập. Nhấp để đăng xuất.</string>
+  <string name="textSettingsTraktAuthorizeSummarySignOutUser">Đã đăng nhập bằng %1$s. Bấm để đăng xuất.</string>
+  <string name="textSettingsTraktSyncTitle">Đồng bộ hóa Trakt.tv</string>
+  <string name="textSettingsTraktSyncSummary">Đồng bộ dữ liệu giữa Trakt.tv và Showly.</string>
+  <string name="textSettingsTraktQuickSyncTitle">Tải lên tức thì Trakt.tv</string>
+  <string name="textSettingsTraktQuickSyncSummary">Tải dữ liệu ngay lập tức lên Trakt.tv sau khi bạn thêm dữ liệu đó vào ứng dụng.</string>
+  <string name="textSettingsTraktQuickRemoveTitle">Xóa dữ liệu Trakt.tv</string>
+  <string name="textSettingsTraktQuickRemoveSummary">Đề nghị xóa dữ liệu khỏi tài khoản Trakt.tv của bạn sau khi bạn xóa dữ liệu đó trong ứng dụng.</string>
+  <string name="textSettingsTraktQuickRateTitle">Trakt.tv Xếp hạng Nhanh</string>
+  <string name="textSettingsTraktQuickRateSummary">Xếp hạng các tập và phim bất cứ khi nào bạn đánh dấu chúng là đã xem trên màn hình \'Tiến độ\'.</string>
+  <string name="textSettingsGeneral">Tổng quan &amp; UX</string>
+  <string name="textSettingsRecentShowsTitle">Số lượng được thêm gần đây</string>
+  <string name="textSettingsRecentShowsSummary">Số mục gần đây sẽ hiển thị trong \'Bộ sưu tập\'.</string>
+  <string name="textSettingsUpcomingSectionTitle">Mục sắp tới</string>
+  <string name="textSettingsUpcomingSectionSummary">Bật/tắt phần \'Sắp tới\' trong tab \'Tiến độ\'.</string>
+  <string name="textSettingsMyShowsSectionsTitle">Mục chương trình của tôi</string>
+  <string name="textSettingsMyShowsSectionSummary">Bật/tắt các mục trong tab \'Chương trình của tôi\'.</string>
+  <string name="textSettingsMyMoviesSectionsTitle">Mục phim của tôi</string>
+  <string name="textSettingsMyMoviesSectionSummary">Bật/tắt các mục trong tab \'Phim của tôi\'.</string>
+  <string name="textSettingsThemeTitle">Chủ đề</string>
+  <string name="textSettingsThemeSummary">Chọn chủ đề chính.</string>
+  <string name="textSettingsThemeWidgetsTitle">Chủ đề</string>
+  <string name="textSettingsThemeWidgetsSummary">Chọn chủ đề tiện ích.</string>
+  <string name="textSettingsWidgetsTransparencyTitle">Nền</string>
+  <string name="textSettingsWidgetsTransparencySummary">Đặt mức độ trong suốt của nền tiện ích.</string>
+  <string name="textSettingsMyShowsCountryTitle">Khu vực</string>
+  <string name="textSettingsMyShowsCountrySummary">Chọn vùng để sử dụng với dữ liệu dịch vụ phát trực tuyến.</string>
+  <string name="textSettingsMyShowsLanguageTitle">Ngôn ngữ</string>
+  <string name="textSettingsMyShowsLanguageSummary">Mô tả và tiêu đề sẽ được dịch khi có sẵn. Ứng dụng sẽ khởi động lại.</string>
+  <string name="textSettingsDateFormatTitle">Định dạng ngày/giờ</string>
+  <string name="textSettingsIncludeSpecialsTitle">Các mùa đặc biệt</string>
+  <string name="textSettingsIncludeSpecialsSummary">Hiển thị các mùa \'Đặc biệt\' trong màn hình chi tiết của chương trình.</string>
+  <string name="textSettingsNotifications">Thông báo</string>
+  <string name="textSettingsPushNotificationsTitle">Thông báo đẩy</string>
+  <string name="textSettingsShowsNotificationsSummary">Nhận thông báo về phim, tập, mùa mới của chương trình bạn đang theo dõi.</string>
+  <string name="textSettingsShowsNotificationsRationale">Vui lòng cấp cho ứng dụng quyền hiển thị thông báo.\n\nBạn có muốn thực hiện việc đó ngay bây giờ không?</string>
+  <string name="textSettingsMisc">Linh tinh</string>
+  <string name="textSettingsContactDevsTitle">Liên hệ với nhà phát triển</string>
+  <string name="textSettingsContactDevsSummary">Tìm thấy một vấn đề? Vui lòng mở một vấn đề trên GitHub.</string>
+  <string name="textSettingsDeleteCacheTitle">Dọn dẹp bộ nhớ đệm hình ảnh</string>
+  <string name="textSettingsDeleteCacheSummary">Nhấp để dọn dẹp bộ nhớ đệm hình ảnh cục bộ. Điều này có thể hữu ích nếu hiển thị hình ảnh không được tải chính xác.</string>
+  <string name="textSettingsQuickSyncConfirmationTitle">Tắt đồng bộ hóa tự động</string>
+  <string name="textSettingsQuickSyncConfirmationMessage">\nCó vẻ như tính năng Đồng bộ hóa tự động đã được bật.\n\nBạn có muốn tắt tính năng này trước khi bật đồng bộ hóa tức thì (được khuyên) không?\n</string>
+  <string name="textSettingsLogoutTitle">Đăng xuất Trakt.tv</string>
+  <string name="textSettingsLogoutMessage">\nBạn có chắc chắn muốn đăng xuất không?\n</string>
+  <string name="textSettingsMoviesEnabledTitle">Phim</string>
+  <string name="textSettingsMoviesEnabledSummary">Bật/tắt hỗ trợ phim. Ứng dụng sẽ khởi động lại.</string>
+  <string name="textSettingsNewsEnabledTitle">Tin tức</string>
+  <string name="textSettingsNewsEnabledSummary">Bật/tắt mục tin tức. Ứng dụng sẽ khởi động lại.</string>
+  <string name="textSettingsWidgets">Tiện ích</string>
+  <string name="textSettingsWidgetsLabelsTitle">Tiêu đề</string>
+  <string name="textSettingsWidgetsLabelsSummary">Hiển thị tiêu đề tiện ích mờ.</string>
+  <string name="textSettingsStreamingsDisclaimer">Dữ liệu dịch vụ phát trực tuyến được cung cấp bởi</string>
+  <string name="textSettingsStreamingServicesTitle">Dịch vụ phát trực tuyến</string>
+  <string name="textSettingsStreamingServicesMessage">Hiển thị dữ liệu dịch vụ phát trực tuyến.</string>
+  <string name="textSettingsProgressNextEpisodeTitle">Tập tiếp theo</string>
+  <string name="textSettingsProgressNextEpisodeMessage">Tính tập tiếp theo bằng cách sử dụng:</string>
+  <string name="textSettingsTabletColumnsTitle">Số cột danh sách</string>
+  <string name="textSettingsTabletColumnsSummary">Chọn số cột ưa thích cho danh sách.</string>
+
+  <string name="textSettingsSpoilers">Tiết lộ nội dung</string>
+
+  <string name="textSettingsSpoilersShows">Chương trình</string>
+  <string name="textSettingsSpoilersShowsSummary">Quản lý thiết đặt tiết lộ nội dung cho chương trình.</string>
+  <string name="textSettingsSpoilersShowsOverviewsMyTitle">Chương trình của tôi</string>
+  <string name="textSettingsSpoilersShowsOverviewsMyDescription">Ẩn <b>mô tả</b> những chương trình được thêm vào Chương trình của tôi</string>
+  <string name="textSettingsSpoilersShowsRatingsMyDescription">Ẩn <b>xếp hạng</b> những chương trình được thêm vào Chương trình của tôi</string>
+  <string name="textSettingsSpoilersShowsOverviewsWatchlistTitle">Danh sách theo dõi</string>
+  <string name="textSettingsSpoilersShowsOverviewsWatchlistDescription">Ẩn <b>mô tả</b> những chương trình được thêm vào Danh sách theo dõi</string>
+  <string name="textSettingsSpoilersShowsRatingsWatchlistDescription">Ẩn <b>xếp hạng</b> những chương trình được thêm vào Danh sách theo dõi</string>
+  <string name="textSettingsSpoilersShowsOverviewsHiddenTitle">Ẩn</string>
+  <string name="textSettingsSpoilersShowsOverviewsHiddenDescription">Ẩn <b>mô tả</b> những chương trình được thêm vào Ẩn</string>
+  <string name="textSettingsSpoilersShowsRatingsHiddenDescription">Ẩn <b>xếp hạng</b> những chương trình được thêm vào Ẩn</string>
+  <string name="textSettingsSpoilersShowsOverviewsNotCollectedTitle">Không được thu thập</string>
+  <string name="textSettingsSpoilersShowsOverviewsNotCollectedDescription">Ẩn <b>mô tả</b> những chương trình không có trong Bộ sưu tập của bạn</string>
+  <string name="textSettingsSpoilersShowsRatingsNotCollectedDescription">Ẩn <b>xếp hạng</b> những chương trình không có trong Bộ sưu tập của bạn</string>
+
+  <string name="textSettingsSpoilersMovies">Phim</string>
+  <string name="textSettingsSpoilersMoviesSummary">Quản lý thiết đặt tiết lộ nội dung cho phim.</string>
+  <string name="textSettingsSpoilersMoviesOverviewsMyTitle">Phim của tôi</string>
+  <string name="textSettingsSpoilersMoviesOverviewsMyDescription">Ẩn <b>mô tả</b> những phim được thêm vào Phim của tôi</string>
+  <string name="textSettingsSpoilersMoviesRatingsMyDescription">Ẩn <b>xếp hạng</b> những phim được thêm vào Phim của tôi</string>
+  <string name="textSettingsSpoilersMoviesOverviewsWatchlistTitle">Danh sách theo dõi</string>
+  <string name="textSettingsSpoilersMoviesOverviewsWatchlistDescription">Ẩn <b>mô tả</b> những phim được thêm vào Danh sách theo dõi</string>
+  <string name="textSettingsSpoilersMoviesRatingsWatchlistDescription">Ẩn <b>xếp hạng</b> những phim được thêm vào Danh sách theo dõi</string>
+  <string name="textSettingsSpoilersMoviesOverviewsHiddenTitle">Ẩn</string>
+  <string name="textSettingsSpoilersMoviesOverviewsHiddenDescription">Ẩn <b>mô tả</b> những phim được thêm vào Ẩn</string>
+  <string name="textSettingsSpoilersMoviesRatingsHiddenDescription">Ẩn <b>xếp hạng</b> những phim được thêm vào Ẩn</string>
+  <string name="textSettingsSpoilersMoviesOverviewsNotCollectedTitle">Không được thu thập</string>
+  <string name="textSettingsSpoilersMoviesOverviewsNotCollectedDescription">Ẩn <b>mô tả</b> những phim không có trong Bộ sưu tập của bạn</string>
+  <string name="textSettingsSpoilersMoviesRatingsNotCollectedDescription">Ẩn <b>xếp hạng</b> những phim không có trong Bộ sưu tập của bạn</string>
+
+  <string name="textSettingsSpoilersEpisodes">Các tập</string>
+  <string name="textSettingsSpoilersEpisodesSummary">Quản lý thiết đặt tiết lộ nội dung cho các tập.</string>
+  <string name="textSettingsSpoilersEpisodesImage">Ẩn <b>hình ảnh</b> những tập chưa xem.</string>
+  <string name="textSettingsSpoilersEpisodesTitle">Ẩn <b>tiêu đề</b> những tập chưa xem.</string>
+  <string name="textSettingsSpoilersEpisodesDescription">Ẩn <b>mô tả</b> những tập chưa xem.</string>
+  <string name="textSettingsSpoilersEpisodesRating">Ẩn <b>xếp hạng</b> những tập chưa xem.</string>
+
+  <string name="textSettingsSpoilersTapToRevealTitle">Nhấn để tiết lộ</string>
+  <string name="textSettingsSpoilersTapToRevealDescription">Nhấn vào nội dung ẩn để tạm thời tiết lộ nó.</string>
+
+  <string name="textNextEpisodeLastWatched">Tập được xem lần cuối</string>
+  <string name="textNextEpisodeOldest">Tập chưa xem lâu đời nhất</string>
+
+  <string name="textLanguageEnglish" translatable="false">Tiếng Anh</string>
+  <string name="textLanguagePolish" translatable="false">Tiếng Ba Lan</string>
+  <string name="textLanguageArabic" translatable="false">Tiếng Ả Rập</string>
+  <string name="textLanguageChinese" translatable="false">Tiếng Trung Giản thể</string>
+  <string name="textLanguageSpanish" translatable="false">Tiếng Tây Ban Nha</string>
+  <string name="textLanguageItalian" translatable="false">Tiếng Ý</string>
+  <string name="textLanguageFrench" translatable="false">Tiếng Pháp</string>
+  <string name="textLanguagePortugalBrasil" translatable="false">Tiếng Bồ Đào Nha Brasil</string>
+  <string name="textLanguageTurkish" translatable="false">Tiếng Thổ Nhĩ Kỳ</string>
+  <string name="textLanguageUkrainian" translatable="false">Tiếng Ukraina</string>
+  <string name="textLanguageGerman" translatable="false">Tiếng Đức</string>
+  <string name="textLanguageRussian" translatable="false">Tiếng Nga</string>
+  <string name="textLanguageFinnish" translatable="false">Tiếng Phần Lan</string>
+
+  <string name="textThemeDark">Tối</string>
+  <string name="textThemeLight">Sáng</string>
+  <string name="textThemeSystem">Hệ thống</string>
+  <string name="textTransparency0" translatable="false">100%</string>
+  <string name="textTransparency25" translatable="false">25%</string>
+  <string name="textTransparency50" translatable="false">50%</string>
+  <string name="textTransparency75" translatable="false">75%</string>
+  <string name="textTransparency100">Đục</string>
+</resources>

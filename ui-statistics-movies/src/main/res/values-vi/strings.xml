@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string name="textStatisticsMovies">Thống kê</string>
+  <string name="textStatisticsMoviesEmpty">Ít nhất một phim phải có trong <b>Phim của tôi</b>\ntrước khi thống kê có thể được hiển thị.</string>
+  <string name="textStatisticsMoviesTotalTimeSpent">Tổng thời gian đã xem</string>
+  <string name="textStatisticsMoviesTotalTimeItIs">và đó là</string>
+  <string name="textStatisticsMoviesTotalTimeSpentHours">%s giờ</string>
+  <string name="textStatisticsMoviesTotalTimeSpentMinutes">%s phút</string>
+  <string name="textStatisticsMoviesTotalTimeSpentDays">tức là khoảng %s ngày.</string>
+  <string name="textStatisticsMoviesTotalMovies">Tổng số phim đã xem</string>
+  <string name="textStatisticsMoviesTotalMoviesCount">%s Phim</string>
+  <string name="textStatisticsMoviesTopGenre">Thể loại hàng đầu</string>
+  <string name="textStatisticsMoviesTopGenreSubValue">dường như là điều bạn thích. Nhấn để xem thêm.</string>
+  <string name="textStatisticsMoviesTopGenreSubValue2">có vẻ như là điều bạn thích.</string>
+  <string name="textStatisticsMoviesRatings">Được xếp hạng gần đây</string>
+</resources>

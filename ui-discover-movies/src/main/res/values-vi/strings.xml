@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string name="textSortOrderMovies">Nguồn cấp:</string>
+  <string name="textDiscoverFilterAnticipatedMovies">Ẩn phim được mong đợi</string>
+  <string name="textDiscoverFilterCollectionMovies">Ẩn bộ sưu tập</string>
+</resources>

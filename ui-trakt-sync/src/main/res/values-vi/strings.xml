@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string name="textTraktLoginSuccess">Bạn đã được ủy quyền thành công.</string>
+  <string name="textTraktSyncStarted">Đã bắt đầu đồng bộ hóa. Nó sẽ tiếp tục chạy ở chế độ nền.</string>
+  <string name="textTraktSyncStart">Đồng bộ hóa ngay bây giờ</string>
+  <string name="textTraktSyncSchedule">Lịch trình</string>
+  <string name="textTraktSyncFromTraktToShowly">Nhập từ Trakt.tv sang Showly</string>
+  <string name="textTraktSyncFromShowlyToTrakt">Xuất từ Showly sang Trakt.tv</string>
+  <string name="textTraktSyncDescription">Đồng bộ hóa dữ liệu danh sách xem và tiến độ tài khoản Trakt.tv của bạn với Showly.\n\nKhông có mục nào trong bộ sưu tập hiện tại của bạn sẽ bị xóa. Đồng bộ hóa sẽ chỉ xử lý các mục bị thiếu trong bộ sưu tập của bạn.</string>
+  <string name="textTraktSyncLastTimestamp">Đồng bộ hóa lần cuối: %s</string>
+
+  <string name="textSettingsTraktAuthorizeTitle">Ủy quyền của Trakt.tv</string>
+  <string name="textSettingsScheduleImportConfirmationTitle">Đã bật đồng bộ hóa tức thì</string>
+  <string name="textSettingsScheduleImportConfirmationMessage">\nCó vẻ như Đồng bộ hóa tức thì đã được bật.\n\nBạn vẫn muốn lên lịch đồng bộ hóa tự động phải không?\n</string>
+</resources>

@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string name="textSortRank">Thứ hạng</string>
+  <string name="textSortName">Tiêu đề</string>
+  <string name="textSortNewest">Gần đây nhất</string>
+  <string name="textSortRated">Được xếp hạng cao nhất</string>
+  <string name="textSortRatedUser">Đánh giá của tôi</string>
+  <string name="textSortDateAdded">Đã thêm gần đây</string>
+  <string name="textSortDateUpdated">Đã cập nhật gần đây</string>
+  <string name="textSortRecentlyWatched">Đã xem gần đây</string>
+  <string name="textSortEpisodesLeft">Các tập còn lại</string>
+
+  <string name="textHeaderRecentlyAdded">Đã thêm gần đây</string>
+  <string name="textHeaderWatching">Đang xem</string>
+  <string name="textHeaderFinished">Đã hoàn tất</string>
+  <string name="textHeaderReturning">Trở lại &amp; Sắp tới</string>
+  <string name="textHeaderAll">Tất cả</string>
+
+  <string name="textSettingsShowsNotificationsWhenTitle">Khi nào cần thông báo</string>
+  <string name="textSettingsShowsNotificationsWhenSummary">Khi nào bạn muốn nhận thông báo về các tập.</string>
+  <string name="textSettingsShowsNotificationsWhenAvailable">Khi có sẵn</string>
+  <string name="textSettingsShowsNotificationsWhen1Hour">1 giờ sau đó</string>
+  <string name="textSettingsShowsNotificationsWhen3Hours">3 giờ sau đó</string>
+  <string name="textSettingsShowsNotificationsWhen6Hours">6 giờ sau đó</string>
+  <string name="textSettingsShowsNotificationsWhen1HourBefore">1 giờ trước đó</string>
+  <string name="textSettingsShowsNotificationsWhen3HoursBefore">3 giờ trước đó</string>
+  <string name="textSettingsShowsNotificationsWhen6HoursBefore">6 giờ trước đó</string>
+  <string name="textSettingsShowsNotificationsWhen12HoursBefore">12 giờ trước đó</string>
+  <string name="textSettingsShowsNotificationsWhen12Hours">12 giờ sau đó</string>
+  <string name="textSettingsShowsNotificationsWhenNextDay">1 ngày sau đó</string>
+
+  <string name="textTipDiscover">Nhấn đúp vào nút menu \'Khám phá\' để mở nhanh màn hình tìm kiếm.</string>
+  <string name="textTipMyShows">Nhấn đúp vào nút menu \'Bộ sưu tập\' để chuyển nhanh giữa các tab.</string>
+  <string name="textTipShowDetailsGallery">Nhấn vào hình ảnh để mở thư viện.</string>
+  <string name="textTipWatchlistPinItem">Nhấn và giữ mục danh sách để ghim mục đó lên đầu.</string>
+  <string name="textTipBottomModeMenu">Vuốt menu dưới cùng sang trái hoặc phải để nhanh chóng thay đổi chế độ.</string>
+  <string name="textTipListSwipeToDelete">Vuốt các mục trong danh sách để xóa chúng khỏi danh sách.</string>
+
+  <string name="textGenreAction">Hành động</string>
+  <string name="textGenreAdventure">Phiêu lưu</string>
+  <string name="textGenreAnimation">Hoạt hình</string>
+  <string name="textGenreAnime">Anime</string>
+  <string name="textGenreComedy">Hài kịch</string>
+  <string name="textGenreCrime">Tội ác</string>
+  <string name="textGenreDocumentary">Tài liệu</string>
+  <string name="textGenreDrama">Kịch</string>
+  <string name="textGenreFantasy">Ảo mộng</string>
+  <string name="textGenreHistory">Lịch sử</string>
+  <string name="textGenreHorror">Kinh dị</string>
+  <string name="textGenreScienceFiction">Khoa học viễn tưởng</string>
+  <string name="textGenreThriller">Hồi hộp</string>
+  <string name="textGenreWar">Chiến tranh</string>
+  <string name="textGenreWestern">Viễn Tây</string>
+
+  <string name="textTraktSyncSchedule">Lịch trình</string>
+  <string name="textTraktSyncOptionOff">Tắt</string>
+  <string name="textTraktSyncOption1Hour">Mỗi giờ</string>
+  <string name="textTraktSyncOption3Hours">Cứ sau 3 giờ</string>
+  <string name="textTraktSyncOption6Hours">Cứ sau 6 giờ</string>
+  <string name="textTraktSyncOptionDaily">Mỗi ngày</string>
+  <string name="textTraktSyncOption3Day">Cứ sau 3 ngày</string>
+  <string name="textTraktSyncOptionWeekly">Hàng tuần</string>
+  <string name="textTraktSyncOptionOffMessage">Đồng bộ hóa sẽ không tự động chạy.</string>
+  <string name="textTraktSyncOptionConfirmMessage">Đồng bộ hóa tự động đã được lên lịch.</string>
+
+  <string name="textTraktSyncOptionHourButton">Dự kiến chạy mỗi giờ</string>
+  <string name="textTraktSyncOption3HoursButton">Dự kiến chạy 3 giờ một lần</string>
+  <string name="textTraktSyncOption6HoursButton">Dự kiến chạy 6 giờ một lần</string>
+  <string name="textTraktSyncOptionDailyButton">Dự kiến chạy hàng ngày</string>
+  <string name="textTraktSyncOption3DayButton">Dự kiến chạy 3 ngày một lần</string>
+  <string name="textTraktSyncOptionWeeklyButton">Dự kiến chạy hàng tuần</string>
+
+  <string name="textShowStatusReturning">Loạt phim tái chiếu</string>
+  <string name="textShowStatusUpcoming">Sắp tới</string>
+  <string name="textShowStatusInProduction">Đang sản xuất</string>
+  <string name="textShowStatusPlanned">Đã lên kế hoạch</string>
+  <string name="textShowStatusCanceled">Đã hủy</string>
+  <string name="textShowStatusEnded">Đã kết thúc</string>
+  <string name="textShowStatusUnknown" translatable="false" />
+
+  <string name="textMovieStatusReleased">Đã phát hành</string>
+  <string name="textMovieStatusInProduction">Đang sản xuất</string>
+  <string name="textMovieStatusPostProduction">Hậu kỳ</string>
+  <string name="textMovieStatusPlanned">Đã lên kế hoạch</string>
+  <string name="textMovieStatusCanceled">Đã hủy</string>
+  <string name="textMovieStatusRumored">Có tin đồn</string>
+  <string name="textMovieStatusUnknown" translatable="false" />
+
+  <string name="textStreamingStream">Truyền phát</string>
+  <string name="textStreamingAds">Quảng cáo</string>
+  <string name="textStreamingBuy">Mua</string>
+  <string name="textStreamingRent">Thuê</string>
+  <string name="textStreamingFree">Miễn phí</string>
+
+  <string name="tagQuickRating" translatable="false">Đánh giá nhanh</string>
+  <string name="tagCustomImages" translatable="false">Hình ảnh tùy chỉnh</string>
+  <string name="tagTheme" translatable="false">Chủ đề</string>
+  <string name="tagWidgetTransparency" translatable="false">Độ trong suốt của tiện ích</string>
+  <string name="tagNews" translatable="false">Tin tức</string>
+  <string name="tagViewsTypes" translatable="false">Các kiểu xem danh sách</string>
+</resources>

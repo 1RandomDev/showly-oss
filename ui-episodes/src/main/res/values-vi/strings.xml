@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string name="textSeasonEpisodeDate">M.%1$02d T.%2$02d | %3$s</string>
+  <string name="textLoadCommentsCount">Bình luận (%d)</string>
+  <string name="textVotes">%.1f (%d phiếu)</string>
+</resources>

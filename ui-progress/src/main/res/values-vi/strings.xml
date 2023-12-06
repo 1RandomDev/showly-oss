@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string name="tabCalendar">Lịch</string>
+  <string name="tabProgress">Tiến độ</string>
+  <string name="textCalendarEmpty">Không có tập phim mới nào sắp ra mắt.</string>
+  <string name="textRecentsEmpty">Không có tập nào được phát sóng gần đây.</string>
+
+  <string name="textOnHold" comment="This is a header for Progress subsection. It will contain pending shows marked by user.">Đang chờ</string>
+  <string name="textDiscoverShows">Khám phá các chương trình</string>
+  <string name="textEpisodeInfo">Chi tiết</string>
+  <string name="textTraktSynchronize">Nhập từ Trakt.tv</string>
+  <string name="textProgressEmpty"><b>Tiến độ</b> của bạn hiện trống.\n\nTruy cập tab <b>Khám phá</b> để thêm chương trình hoặc nhập bộ sưu tập Trakt.tv của bạn.</string>
+  <string name="textNewSeason">Buổi ra mắt mùa phim</string>
+</resources>

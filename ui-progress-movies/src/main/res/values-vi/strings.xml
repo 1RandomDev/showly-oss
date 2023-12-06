@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string name="tabMoviesCalendar">Lịch</string>
+  <string name="tabMoviesProgress">Tiến độ</string>
+  <string name="textMoviesCalendarEmpty">Không có bộ phim mới nào sắp ra mắt.</string>
+  <string name="textMoviesCalendarRecentsEmpty">Không có phim nào được phát sóng gần đây.</string>
+
+  <string name="textDiscoverMovies">Khám phá phim</string>
+  <string name="textMoviesTraktSynchronize">Nhập từ Trakt.tv</string>
+  <string name="textMoviesProgressEmpty"><b>Tiến độ</b> của bạn hiện đang trống.\n\nTruy cập tab <b>Khám phá</b> để thêm phim hoặc nhập bộ sưu tập Trakt.tv của bạn.</string>
+
+</resources>
