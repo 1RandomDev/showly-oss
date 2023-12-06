@@ -16,7 +16,6 @@
   <string name="textNewsDesc">Bật mục tin tức với các bài viết, tin tức và đoạn giới thiệu phim và chương trình mới nhất. Được hỗ trợ bởi Reddit.</string>
   <string name="textViewsTitle">Kiểu xem danh sách</string>
   <string name="textViewsDesc">Bật các loại chế độ xem bộ sưu tập bổ sung như danh sách thu gọn hoặc chế độ xem lưới.</string>
-</resources>
   <string name="textPurchaseThanks">Bây giờ bạn đã là Người ủng hộ Showly!\nCảm ơn bạn và hãy tận hưởng ứng dụng này!</string>
   <string name="textPurchasePending" translatable="false">Giao dịch mua hàng của bạn đang được xử lý bởi Cửa hàng Google Play...</string>
   <string name="textPurchaseNotAvailable">Thanh toán không có sẵn trong phiên bản OSS.</string>
