@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string name="menuLists">Các Danh sách</string>
+  <string name="menuList">Danh sách</string>
+
+  <string name="textFilters">Bộ lọc:</string>
+  <string name="textListsEmpty">Bộ sưu tập các danh sách của bạn hiện đang trống.</string>
+  <string name="textListEmpty">Danh sách của bạn hiện đang trống.</string>
+  <string name="textCreateList">Tạo danh sách</string>
+  <string name="textCreateListDescription">Tạo một danh sách tùy chỉnh mới.</string>
+  <string name="textName">Tên</string>
+  <string name="textDescription">Mô tả (tùy chọn)</string>
+  <string name="textDeleteList">Xóa danh sách</string>
+  <string name="textEditList">Chỉnh sửa danh sách</string>
+  <string name="textEditListDescription">Cập nhật danh sách tùy chỉnh của bạn.</string>
+  <string name="textConfirmDeleteListTitle">Xóa danh sách</string>
+  <string name="textConfirmDeleteListSubtitle">Bạn có chắc chắn muốn xóa danh sách này?</string>
+  <string name="textChangeRanks">Thay đổi thứ hạng</string>
+  <string name="textChangeRanksSubtitle">Kéo và thả mục danh sách để thay đổi thứ hạng của nó</string>
+
+  <string name="textManageLists">Quản lý danh sách</string>
+  <string name="textManageListsShows">Quản lý danh sách của bạn cho chương trình này.</string>
+  <string name="textManageListsMovies">Quản lý danh sách của bạn cho bộ phim này.</string>
+
+  <string name="errorCouldNotCreateList">Chúng tôi không thể tạo danh sách mới trong tài khoản Trakt của bạn vào lúc này.\nVui lòng kiểm tra kết nối Internet và thử lại.</string>
+  <string name="errorCouldNotUpdateList">Chúng tôi không thể cập nhật danh sách này trong tài khoản Trakt của bạn vào lúc này.\nVui lòng kiểm tra kết nối Internet và thử lại.</string>
+  <string name="errorCouldNotDeleteList">Chúng tôi không thể xóa danh sách này khỏi tài khoản Trakt của bạn vào lúc này.\nVui lòng kiểm tra kết nối Internet và thử lại.</string>
+
+</resources>

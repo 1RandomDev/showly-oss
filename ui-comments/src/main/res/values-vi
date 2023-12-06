@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string name="textComment">Bình luận</string>
+  <string name="textComments">Bình luận:</string>
+  <string name="textComments2">Bình luận</string>
+  <string name="textNoComments">Không có bình luận nào.</string>
+  <string name="textCommentDisclaimer">Chỉ tiếng Anh, 5 từ trở lên, hãy tôn trọng, đánh dấu phần tiết lộ nội dung!</string>
+  <string name="textSpoilers">Tiết lộ nội dung</string>
+  <string name="textCommentPosted">Bình luận của bạn đã được gửi.</string>
+  <string name="textCommentDeleted">Bình luận của bạn đã bị xóa.</string>
+  <string name="textCommentConfirmDeleteTitle">Xóa bình luận</string>
+  <string name="textCommentConfirmDelete">Bạn có chắc chắn muốn xóa bình luận này?</string>
+
+  <string name="textSignBeforeRate">Vui lòng đăng nhập trước khi xếp hạng một chương trình.</string>
+  <string name="textSignBeforeRateMovie">Vui lòng đăng nhập trước khi xếp hạng phim.</string>
+
+  <string name="errorCommentFormat">Bình luận của bạn phải bằng tiếng Anh và có 5 từ trở lên.</string>
+  <string name="errorCommentDelete">Bình luận này không thể bị xóa được nữa.</string>
+</resources>

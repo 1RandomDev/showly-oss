@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string name="textInMyMovies">Đã thêm vào phim của tôi</string>
+  <string name="textInMoviesWatchlist">Đã thêm vào danh sách theo dõi</string>
+  <string name="textInHidden">Ẩn</string>
+
+  <string name="textMovieActorsEmpty">Diễn viên không có sẵn</string>
+  <string name="textMovieTrailer">Đoạn giới thiệu</string>
+  <string name="textMovieRate">Xếp hạng</string>
+  <string name="textMovieComments2">Bình luận</string>
+  <string name="textMovieYouMayAlsoLike">Bạn cũng có thể thích</string>
+  <string name="textMovieCollections">Bộ sưu tập</string>
+
+  <string name="textMovieExtraInfo">%s %s</string>
+
+  <string name="textMovieManageLists">Quản lý các danh sách</string>
+  <string name="textMovieManageListsCount">Quản lý các danh sách (%d)</string>
+  <string name="textTraktSyncMovieRemovedFromTrakt">Trakt.tv đã được đồng bộ hóa thành công.</string>
+</resources>

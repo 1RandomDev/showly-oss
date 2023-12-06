@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string name="textSearchInitial1">Bạn đang tìm kiếm gì?</string>
+  <string name="textSearchInitial2">Tìm kiếm được cung cấp bởi Trakt.tv</string>
+  <string name="textClear">Xóa các tìm kiếm gần đây</string>
+</resources>

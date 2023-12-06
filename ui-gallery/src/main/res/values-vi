@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string name="textPoster">Áp phích</string>
+  <string name="textFanart">Fanart</string>
+  <string name="textGalleryEmpty">Không có hình ảnh nào</string>
+
+  <string name="textUrlDialogTitle">Tải hình ảnh</string>
+  <string name="textUrlDialogHint">URL của hình ảnh</string>
+  <string name="textUrlDialogInvalidUrl">Định dạng URL hình ảnh không hợp lệ.\Ví dụ: https://test.com/image.jpg</string>
+  <string name="textUrlDialogInvalidImage">Lấy làm tiếc. Không thể tải hình ảnh này.</string>
+
+</resources>

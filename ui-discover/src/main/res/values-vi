@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string name="textSortOrder">Nguồn cấp:</string>
+  <string name="textDiscoverFilterAnticipated">Ẩn các chương trình được mong đợi</string>
+  <string name="textDiscoverFilterCollection">Ẩn bộ sưu tập</string>
+
+  <string name="textTwitterTitle" translatable="false">Showly có trên Twitter!</string>
+  <string name="textTwitterDescription" translatable="false">Theo dõi <b>@AppShowly</b> để nhận tin tức và thông tin mới nhất về ứng dụng.</string>
+</resources>

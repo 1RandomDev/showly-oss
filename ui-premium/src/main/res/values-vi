@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string name="textPremium">Showly Premium</string>
+  <string name="textPremiumAdFull">Trở thành người ủng hộ Showly, giúp phát triển nó và có quyền truy cập vào các tính năng thưởng thú vị!</string>
+  <string name="textLightThemeTitle">Chủ đề sáng</string>
+  <string name="textLightThemeDesc">Tham gia vào phe sáng bằng một chủ đề sáng bổ sung áp dụng cho ứng dụng chính và các tiện ích.</string>
+  <string name="textCustomImagesTitle">Hình ảnh tùy chỉnh</string>
+  <string name="textCustomImagesDesc">Đặt áp phích và fanart yêu thích của riêng bạn cho các chương trình và phim. Chọn một hình ảnh từ thư viện hoặc tải lên URL của riêng bạn.</string>
+  <string name="textQuickRatingTitle">Xếp hạng nhanh</string>
+  <string name="textQuickRatingDesc">Đừng bao giờ quên xếp hạng một bộ phim hoặc tập chương trình mà bạn vừa xem. Với tính năng xếp hạng nhanh, bạn sẽ có thể tự động xếp hạng một mục bất cứ khi nào bạn đánh dấu mục đó là đã xem.</string>
+  <string name="textWidgetsTitle">Tiện ích trong suốt</string>
+  <string name="textWidgetsDesc">Đặt độ trong suốt của nền tiện ích để phù hợp hơn với màn hình chính của bạn.</string>
+  <string name="textRemoveAdsTitle">Loại bỏ quảng cáo</string>
+  <string name="textRemoveAdsDesc">Loại bỏ tất cả quảng cáo cao cấp hiển thị trong ứng dụng.</string>
+  <string name="textNewsTitle">Mục tin tức</string>
+  <string name="textNewsDesc">Bật mục tin tức với các bài viết, tin tức và đoạn giới thiệu phim và chương trình mới nhất. Được hỗ trợ bởi Reddit.</string>
+  <string name="textViewsTitle">Kiểu xem danh sách</string>
+  <string name="textViewsDesc">Bật các loại chế độ xem bộ sưu tập bổ sung như danh sách thu gọn hoặc chế độ xem lưới.</string>
+</resources>
+  <string name="textPurchaseThanks">Bây giờ bạn đã là Người ủng hộ Showly!\nCảm ơn bạn và hãy tận hưởng ứng dụng này!</string>
+  <string name="textPurchasePending" translatable="false">Giao dịch mua hàng của bạn đang được xử lý bởi Cửa hàng Google Play...</string>
+  <string name="textPurchaseNotAvailable">Thanh toán không có sẵn trong phiên bản OSS.</string>
+</resources>
