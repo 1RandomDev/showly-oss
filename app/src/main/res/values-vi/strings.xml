@@ -1,0 +1,31 @@
+<resources>
+  <string name="app_name" translatable="false">Showly OSS</string>
+
+  <string name="menuProgress">Tiến độ</string>
+  <string name="menuDiscover">Khám phá</string>
+  <string name="menuCollection">Bộ sưu tập</string>
+  <string name="menuNews">Tin tức</string>
+
+  <string name="textRateAppTitle">Bạn có thích Showly 2.0 không?</string>
+  <string name="textRateAppMessage">Bạn có muốn xếp hạng ứng dụng không?\nViệc này chỉ mất vài giây. Cảm ơn!\n\n<i>Ứng dụng sẽ không bị đóng.</i></string>
+  <string name="textRateAppYesButton">Chắc chắn rồi, tại sao không?</string>
+  <string name="textRateAppNoButton">Không phải bây giờ</string>
+
+  <string name="textDisclaimerTitle">Chào mừng!</string>
+  <string name="textDisclaimerText">Xin lưu ý rằng bạn <b>KHÔNG THỂ</b> xem, phát trực tuyến hoặc tải xuống các chương trình và phim bằng ứng dụng này.\n\nSử dụng các ứng dụng như <b>Netflix</b> để phát trực tuyến và xem nội dung.</string >
+  <string name="textDisclaimerConfirmText">Được rồi, tôi hiểu</string>
+  <string name="textLanguagesChoose2" translatable="false">Ngôn ngữ luôn có thể được thay đổi sau đó thông qua Thiết đặt.</string>
+  <string name="textLeaveEnglish" translatable="false">Không, tôi thích tiếng Anh hơn</string>
+  <string name="textChangeLanguage" translatable="false">Có</string>
+
+  <string name="textWhatsNewTitle">Có gì mới</string>
+  <string name="textWhatsNewSubtitle">Phiên bản %s</string>
+
+  <string name="shortcutDiscover">Khám phá</string>
+  <string name="shortcutCollection">Bộ sưu tập</string>
+  <string name="shortcutSearch">Tìm kiếm</string>
+  <string name="shortcutProgress">Tiến độ</string>
+
+  <string name="textUpdateDownloaded" translatable="false">Hiện đã có bản cập nhật.</string>
+  <string name="textUpdateInstall" translatable="false">Cài đặt</string>
+</resources>
