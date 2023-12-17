@@ -54,7 +54,7 @@ redditClientId="your reddit client id"
 
 Feel free to post problems with the app as Github [Issues](https://github.com/1RandomDev/showly-oss/issues).
 
-Features ideas should be posted as new Github [Discussion](https://github.com/1RandomDev/showly-oss/discussions).
+Features ideas should be posted as new Github [Discussion](https://github.com/michaldrabik/showly-2.0/discussions).
 
 Pull requests are welcome. Remember about leaving a comment in the relevant issue if you are working on something.
 
