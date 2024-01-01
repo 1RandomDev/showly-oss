@@ -4,6 +4,7 @@ import com.michaldrabik.common.dispatchers.CoroutineDispatchers
 import com.michaldrabik.common.extensions.nowUtc
 import com.michaldrabik.common.extensions.toLocalZone
 import com.michaldrabik.repository.NewsRepository
+import com.michaldrabik.repository.UserRedditManager
 import com.michaldrabik.ui_base.dates.DateFormatProvider
 import com.michaldrabik.ui_model.NewsItem
 import com.michaldrabik.ui_model.NewsItem.Type
@@ -20,6 +21,7 @@ class NewsLoadItemsCase @Inject constructor(
   private val dispatchers: CoroutineDispatchers,
   private val newsRepository: NewsRepository,
   private val dateFormatProvider: DateFormatProvider,
+  private val userManager: UserRedditManager,
 ) {
 
   suspend fun preloadItems(types: List<Type>) = withContext(dispatchers.IO) {
@@ -46,15 +48,18 @@ class NewsLoadItemsCase @Inject constructor(
     forceRefresh: Boolean,
     types: List<Type>,
   ) = withContext(dispatchers.IO) {
+    val token = userManager.checkAuthorization()
+
     val showsNewsAsync = async {
       when {
-        types.contains(Type.SHOW) || types.isEmpty() -> newsRepository.loadShowsNews(forceRefresh)
+        types.contains(Type.SHOW) || types.isEmpty() -> newsRepository.loadShowsNews(token, forceRefresh)
         else -> emptyList()
       }
     }
+
     val moviesNewsAsync = async {
       when {
-        types.contains(Type.MOVIE) || types.isEmpty() -> newsRepository.loadMoviesNews(forceRefresh)
+        types.contains(Type.MOVIE) || types.isEmpty() -> newsRepository.loadMoviesNews(token, forceRefresh)
         else -> emptyList()
       }
     }

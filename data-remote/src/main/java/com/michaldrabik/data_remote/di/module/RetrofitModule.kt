@@ -1,8 +1,9 @@
 package com.michaldrabik.data_remote.di.module
 
 import com.michaldrabik.data_remote.Config.AWS_BASE_URL
-import com.michaldrabik.data_remote.Config.GCLOUD_BASE_URL
 import com.michaldrabik.data_remote.Config.OMDB_BASE_URL
+import com.michaldrabik.data_remote.Config.REDDIT_BASE_URL
+import com.michaldrabik.data_remote.Config.REDDIT_OAUTH_BASE_URL
 import com.michaldrabik.data_remote.Config.TMDB_BASE_URL
 import com.michaldrabik.data_remote.Config.TRAKT_BASE_URL
 import com.squareup.moshi.Moshi
@@ -74,15 +75,28 @@ object RetrofitModule {
 
   @Provides
   @Singleton
-  @Named("retrofitGCloud")
-  fun providesCloudRetrofit(
-    @Named("okHttpGCloud") okHttpClient: OkHttpClient,
+  @Named("retrofitRedditAuth")
+  fun providesRedditRetrofit(
+    @Named("okHttpReddit") okHttpClient: OkHttpClient,
     moshi: Moshi,
   ): Retrofit =
     Retrofit.Builder()
       .client(okHttpClient)
       .addConverterFactory(MoshiConverterFactory.create(moshi))
-      .baseUrl(GCLOUD_BASE_URL)
+      .baseUrl(REDDIT_BASE_URL)
+      .build()
+
+  @Provides
+  @Singleton
+  @Named("retrofitRedditListing")
+  fun providesRedditRetrofitOAuth(
+    @Named("okHttpReddit") okHttpClient: OkHttpClient,
+    moshiConverter: MoshiConverterFactory,
+  ): Retrofit =
+    Retrofit.Builder()
+      .client(okHttpClient)
+      .addConverterFactory(moshiConverter)
+      .baseUrl(REDDIT_OAUTH_BASE_URL)
       .build()
 
   @Provides
