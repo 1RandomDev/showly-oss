@@ -114,20 +114,6 @@
   <string name="textNextEpisodeLastWatched">Tập được xem lần cuối</string>
   <string name="textNextEpisodeOldest">Tập chưa xem lâu đời nhất</string>
 
-  <string name="textLanguageEnglish" translatable="false">Tiếng Anh</string>
-  <string name="textLanguagePolish" translatable="false">Tiếng Ba Lan</string>
-  <string name="textLanguageArabic" translatable="false">Tiếng Ả Rập</string>
-  <string name="textLanguageChinese" translatable="false">Tiếng Trung Giản thể</string>
-  <string name="textLanguageSpanish" translatable="false">Tiếng Tây Ban Nha</string>
-  <string name="textLanguageItalian" translatable="false">Tiếng Ý</string>
-  <string name="textLanguageFrench" translatable="false">Tiếng Pháp</string>
-  <string name="textLanguagePortugalBrasil" translatable="false">Tiếng Bồ Đào Nha Brasil</string>
-  <string name="textLanguageTurkish" translatable="false">Tiếng Thổ Nhĩ Kỳ</string>
-  <string name="textLanguageUkrainian" translatable="false">Tiếng Ukraina</string>
-  <string name="textLanguageGerman" translatable="false">Tiếng Đức</string>
-  <string name="textLanguageRussian" translatable="false">Tiếng Nga</string>
-  <string name="textLanguageFinnish" translatable="false">Tiếng Phần Lan</string>
-
   <string name="textThemeDark">Tối</string>
   <string name="textThemeLight">Sáng</string>
   <string name="textThemeSystem">Hệ thống</string>

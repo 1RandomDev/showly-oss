@@ -20,7 +20,8 @@ enum class AppLanguage(
   FINNISH("fi", "Finnish", R.string.textLanguageFinnish),
   TURKISH("tr", "Turkish", R.string.textLanguageTurkish),
   ARABIC("ar", "Arabic", R.string.textLanguageArabic),
-  CHINESE("zh", "Chinese Simplified", R.string.textLanguageChinese);
+  CHINESE("zh", "Chinese Simplified", R.string.textLanguageChinese),
+  VIETNAMESE("vi", "Vietnamese", R.string.textLanguageVietnamese);
 
   companion object {
     fun fromCode(code: String) = values().first { it.code == code }
