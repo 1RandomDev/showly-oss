@@ -41,7 +41,7 @@ class PeopleListBottomSheet : BaseBottomSheetFragment(R.layout.view_people_list)
       mediaIdTrakt: IdTrakt,
       mediaTitle: String,
       mode: Mode,
-      department: Person.Department
+      department: Person.Department,
     ) = bundleOf(
       ARG_ID to mediaIdTrakt.id,
       ARG_TITLE to mediaTitle,
@@ -103,7 +103,7 @@ class PeopleListBottomSheet : BaseBottomSheetFragment(R.layout.view_people_list)
 
   private fun openDetails(item: Person) {
     setFragmentResult(REQUEST_DETAILS, bundleOf(ARG_PERSON to item))
-    val bundle = PersonDetailsBottomSheet.createBundle(item, mediaIdTrakt)
+    val bundle = PersonDetailsBottomSheet.createBundle(item, mediaIdTrakt, null)
     findNavController().navigate(R.id.actionPeopleListDialogToDetails, bundle)
   }
 

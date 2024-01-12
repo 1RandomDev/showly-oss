@@ -21,7 +21,9 @@ import com.michaldrabik.ui_model.Person
 import com.michaldrabik.ui_model.Person.Department
 import com.michaldrabik.ui_model.Show
 import com.michaldrabik.ui_navigation.java.NavigationArgs.ARG_PERSON
+import com.michaldrabik.ui_navigation.java.NavigationArgs.ARG_PERSON_ARGS
 import com.michaldrabik.ui_navigation.java.NavigationArgs.REQUEST_DETAILS
+import com.michaldrabik.ui_people.details.PersonDetailsArgs
 import com.michaldrabik.ui_people.details.PersonDetailsBottomSheet
 import com.michaldrabik.ui_people.list.PeopleListBottomSheet
 import com.michaldrabik.ui_show.R
@@ -67,9 +69,9 @@ class ShowDetailsPeopleFragment : BaseFragment<ShowDetailsPeopleViewModel>(R.lay
     }
   }
 
-  private fun openPersonSheet(show: Show, person: Person) {
+  private fun openPersonSheet(show: Show, person: Person, personArgs: PersonDetailsArgs?) {
     handleSheetResult()
-    val bundle = PersonDetailsBottomSheet.createBundle(person, show.ids.trakt)
+    val bundle = PersonDetailsBottomSheet.createBundle(person, show.ids.trakt, personArgs)
     (requireParentFragment() as BaseFragment<*>)
       .navigateToSafe(R.id.actionShowDetailsFragmentToPerson, bundle)
   }
@@ -139,7 +141,7 @@ class ShowDetailsPeopleFragment : BaseFragment<ShowDetailsPeopleViewModel>(R.lay
 
   private fun handleEvent(event: Event<*>) {
     when (event) {
-      is OpenPersonSheet -> openPersonSheet(event.show, event.person)
+      is OpenPersonSheet -> openPersonSheet(event.show, event.person, event.personArgs)
       is OpenPeopleSheet -> openPeopleSheet(event)
     }
   }
@@ -148,8 +150,10 @@ class ShowDetailsPeopleFragment : BaseFragment<ShowDetailsPeopleViewModel>(R.lay
   private fun handleSheetResult() {
     requireParentFragment()
       .setFragmentResultListener(REQUEST_DETAILS) { _, bundle ->
-        bundle.getParcelable<Person>(ARG_PERSON)?.let {
-          viewModel.saveLastPerson(it)
+        val person = bundle.getParcelable<Person>(ARG_PERSON)
+        val personArgs = bundle.getParcelable<PersonDetailsArgs>(ARG_PERSON_ARGS)
+        person?.let {
+          viewModel.saveLastPerson(it, personArgs)
           bundle.clear()
         }
         requireParentFragment().clearFragmentResultListener(REQUEST_DETAILS)

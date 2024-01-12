@@ -25,13 +25,22 @@ abstract class BaseBottomSheetFragment(@LayoutRes val layoutResId: Int) : Bottom
 
   override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
     super.onViewCreated(view, savedInstanceState)
-    val behavior: BottomSheetBehavior<*> = (dialog as BottomSheetDialog).behavior
-    behavior.state = BottomSheetBehavior.STATE_EXPANDED
-    behavior.skipCollapsed = true
+    expandSheet()
   }
 
   protected fun navigateTo(@IdRes destination: Int, bundle: Bundle? = null) =
     (requireActivity() as NavigationHost).findNavControl()?.navigate(destination, bundle)
+
+  protected fun isSheetExpanded(): Boolean {
+    val behavior: BottomSheetBehavior<*> = (dialog as BottomSheetDialog).behavior
+    return behavior.state == BottomSheetBehavior.STATE_EXPANDED
+  }
+
+  protected fun expandSheet() {
+    val behavior: BottomSheetBehavior<*> = (dialog as BottomSheetDialog).behavior
+    behavior.state = BottomSheetBehavior.STATE_EXPANDED
+    behavior.skipCollapsed = true
+  }
 
   protected fun closeSheet() = (requireActivity() as NavigationHost).findNavControl()?.navigateUp()
 }

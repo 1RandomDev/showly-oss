@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.View
 import androidx.core.os.bundleOf
+import androidx.core.view.isVisible
 import androidx.fragment.app.setFragmentResult
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
@@ -16,6 +17,7 @@ import com.google.android.material.snackbar.Snackbar
 import com.michaldrabik.ui_base.BaseBottomSheetFragment
 import com.michaldrabik.ui_base.common.FastLinearLayoutManager
 import com.michaldrabik.ui_base.utilities.TipsHost
+import com.michaldrabik.ui_base.utilities.events.Event
 import com.michaldrabik.ui_base.utilities.events.MessageEvent
 import com.michaldrabik.ui_base.utilities.extensions.fadeIn
 import com.michaldrabik.ui_base.utilities.extensions.fadeOut
@@ -32,9 +34,11 @@ import com.michaldrabik.ui_model.Tip
 import com.michaldrabik.ui_navigation.java.NavigationArgs
 import com.michaldrabik.ui_navigation.java.NavigationArgs.ARG_ID
 import com.michaldrabik.ui_navigation.java.NavigationArgs.ARG_PERSON
+import com.michaldrabik.ui_navigation.java.NavigationArgs.ARG_PERSON_ARGS
 import com.michaldrabik.ui_navigation.java.NavigationArgs.REQUEST_DETAILS
 import com.michaldrabik.ui_people.R
 import com.michaldrabik.ui_people.databinding.ViewPersonDetailsBinding
+import com.michaldrabik.ui_people.details.PersonDetailsUiEvent.ScrollToPosition
 import com.michaldrabik.ui_people.details.links.PersonLinksBottomSheet
 import com.michaldrabik.ui_people.details.recycler.PersonDetailsAdapter
 import com.michaldrabik.ui_people.details.recycler.PersonDetailsItem
@@ -47,16 +51,23 @@ class PersonDetailsBottomSheet : BaseBottomSheetFragment(R.layout.view_person_de
   companion object {
     const val SHOW_BACK_UP_BUTTON_THRESHOLD = 25
 
-    fun createBundle(person: Person, sourceId: IdTrakt) =
-      bundleOf(
+    fun createBundle(
+      person: Person,
+      sourceId: IdTrakt,
+      personArgs: PersonDetailsArgs?,
+    ): Bundle {
+      return bundleOf(
         ARG_PERSON to person,
+        ARG_PERSON_ARGS to (personArgs ?: PersonDetailsArgs()),
         ARG_ID to sourceId
       )
+    }
   }
 
   private val viewModel by viewModels<PersonDetailsViewModel>()
   private val binding by viewBinding(ViewPersonDetailsBinding::bind)
 
+  private val personArgs by lazy { requireParcelable<PersonDetailsArgs>(ARG_PERSON_ARGS) }
   private val person by lazy { requireParcelable<Person>(ARG_PERSON) }
   private val sourceId by lazy { requireParcelable<IdTrakt>(ARG_ID) }
 
@@ -72,8 +83,9 @@ class PersonDetailsBottomSheet : BaseBottomSheetFragment(R.layout.view_person_de
 
     launchAndRepeatStarted(
       { viewModel.uiState.collect { render(it) } },
+      { viewModel.eventFlow.collect { handleEvent(it) } },
       { viewModel.messageFlow.collect { renderSnackbar(it) } },
-      doAfterLaunch = { viewModel.loadDetails(person) }
+      doAfterLaunch = { viewModel.loadDetails(person, personArgs) }
     )
   }
 
@@ -110,7 +122,7 @@ class PersonDetailsBottomSheet : BaseBottomSheetFragment(R.layout.view_person_de
       onImageClickListener = { openGallery() },
       onImageMissingListener = { item, force -> viewModel.loadMissingImage(item, force) },
       onTranslationMissingListener = { item -> viewModel.loadMissingTranslation(item) },
-      onFiltersChangeListener = { filters -> viewModel.loadCredits(person, filters) }
+      onFiltersChangeListener = { filters -> viewModel.loadCredits(person, null, filters) }
     )
     with(binding.personDetailsRecycler) {
       adapter = this@PersonDetailsBottomSheet.adapter
@@ -122,7 +134,14 @@ class PersonDetailsBottomSheet : BaseBottomSheetFragment(R.layout.view_person_de
   }
 
   private fun openDetails(item: PersonDetailsItem) {
-    val personBundle = bundleOf(ARG_PERSON to person)
+    val personBundle = bundleOf(
+      ARG_PERSON to person,
+      ARG_PERSON_ARGS to PersonDetailsArgs(
+        isExpanded = isSheetExpanded(),
+        isUpButtonVisible = binding.personDetailsRecyclerFab.isVisible,
+        firstVisibleItemPosition = (layoutManager?.findLastVisibleItemPosition() ?: 0)
+      ),
+    )
     if (item is PersonDetailsItem.CreditsShowItem && item.show.traktId != sourceId.id) {
       setFragmentResult(REQUEST_DETAILS, personBundle)
       val bundle = bundleOf(NavigationArgs.ARG_SHOW_ID to item.show.traktId)
@@ -164,6 +183,20 @@ class PersonDetailsBottomSheet : BaseBottomSheetFragment(R.layout.view_person_de
     when (message) {
       is MessageEvent.Info -> binding.viewPersonDetailsRoot.showInfoSnackbar(getString(message.textRestId))
       is MessageEvent.Error -> binding.viewPersonDetailsRoot.showErrorSnackbar(getString(message.textRestId))
+    }
+  }
+
+  private fun handleEvent(event: Event<*>) {
+    when (event) {
+      is ScrollToPosition -> {
+        if (event.isSheetExpanded) expandSheet()
+        with(binding) {
+          if (event.isUpButtonVisible) personDetailsRecyclerFab.fadeIn(150)
+          personDetailsRecycler.postDelayed({
+            personDetailsRecycler.scrollToPosition(event.position)
+          }, 100)
+        }
+      }
     }
   }
 

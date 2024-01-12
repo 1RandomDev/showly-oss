@@ -9,6 +9,7 @@ import com.michaldrabik.ui_base.viewmodel.DefaultChannelsDelegate
 import com.michaldrabik.ui_model.Person
 import com.michaldrabik.ui_model.Person.Department
 import com.michaldrabik.ui_model.Show
+import com.michaldrabik.ui_people.details.PersonDetailsArgs
 import com.michaldrabik.ui_show.ShowDetailsEvent
 import com.michaldrabik.ui_show.sections.people.cases.ShowDetailsPeopleCase
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -26,7 +27,9 @@ class ShowDetailsPeopleViewModel @Inject constructor(
 ) : ViewModel(), ChannelsDelegate by DefaultChannelsDelegate() {
 
   private lateinit var show: Show
+
   private var lastOpenedPerson: Person? = null
+  private var lastOpenedPersonArgs: PersonDetailsArgs? = null
 
   private val loadingState = MutableStateFlow(true)
   private val actorsState = MutableStateFlow<List<Person>?>(null)
@@ -58,9 +61,12 @@ class ShowDetailsPeopleViewModel @Inject constructor(
     Timber.d("Loading people...")
   }
 
-  fun loadPersonDetails(person: Person) {
+  fun loadPersonDetails(
+    person: Person,
+    personArgs: PersonDetailsArgs? = null,
+  ) {
     viewModelScope.launch {
-      eventChannel.send(ShowDetailsEvent.OpenPersonSheet(show, person))
+      eventChannel.send(ShowDetailsEvent.OpenPersonSheet(show, person, personArgs))
     }
   }
 
@@ -72,13 +78,18 @@ class ShowDetailsPeopleViewModel @Inject constructor(
 
   fun loadLastPerson() {
     lastOpenedPerson?.let {
-      loadPersonDetails(it)
+      loadPersonDetails(it, lastOpenedPersonArgs)
       lastOpenedPerson = null
+      lastOpenedPersonArgs = null
     }
   }
 
-  fun saveLastPerson(person: Person) {
+  fun saveLastPerson(
+    person: Person,
+    personArgs: PersonDetailsArgs?,
+  ) {
     lastOpenedPerson = person
+    lastOpenedPersonArgs = personArgs
   }
 
   val uiState = combine(

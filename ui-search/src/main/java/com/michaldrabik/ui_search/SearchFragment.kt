@@ -3,6 +3,7 @@ package com.michaldrabik.ui_search
 import android.graphics.drawable.Animatable
 import android.os.Bundle
 import android.text.Editable
+import android.view.KeyEvent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -133,7 +134,9 @@ class SearchFragment : BaseFragment<SearchViewModel>(R.layout.fragment_search), 
       searchViewLayout.binding.searchViewText.gone()
       (searchViewLayout.binding.searchViewIcon.drawable as Animatable).start()
       searchViewLayout.settingsIconVisible = false
+
       viewModel.preloadSuggestions()
+
       if (!isInitialized) {
         searchViewLayout.binding.searchViewInput.showKeyboard()
         searchViewLayout.binding.searchViewInput.requestFocus()
@@ -145,21 +148,24 @@ class SearchFragment : BaseFragment<SearchViewModel>(R.layout.fragment_search), 
         setOnEditorActionListener { textView, id, _ ->
           if (id == EditorInfo.IME_ACTION_SEARCH) {
             val query = textView.text.toString()
-            if (query.trim().isBlank()) {
-              searchViewLayout.shake()
-              return@setOnEditorActionListener true
-            }
-            viewModel.search(query)
-            searchViewLayout.binding.searchViewInput.hideKeyboard()
-            searchViewLayout.binding.searchViewInput.clearFocus()
+            return@setOnEditorActionListener onSearchQuery(query)
           }
           true
         }
+        setOnKeyListener { _, keyCode, keyEvent ->
+          if (keyEvent.action == KeyEvent.ACTION_DOWN && keyCode == KeyEvent.KEYCODE_ENTER) {
+            val query = text.toString()
+            return@setOnKeyListener onSearchQuery(query)
+          }
+          false
+        }
       }
+
       searchViewLayout.binding.searchViewIcon.onClick {
         searchViewLayout.binding.searchViewInput.hideKeyboard()
         requireActivity().onBackPressed()
       }
+
       with(searchFiltersView) {
         onChipsChangeListener = viewModel::setFilters
         onSortClickListener = ::openSortingDialog
@@ -226,6 +232,19 @@ class SearchFragment : BaseFragment<SearchViewModel>(R.layout.fragment_search), 
       val tabletOffset = if (isTablet) dimenToPx(R.dimen.spaceMedium) else 0
       val inset = insets.getInsets(WindowInsetsCompat.Type.systemBars()).top + tabletOffset
       view.updatePadding(top = inset)
+    }
+  }
+
+  private fun onSearchQuery(query: String): Boolean {
+    with(binding) {
+      if (query.trim().isBlank()) {
+        searchViewLayout.shake()
+        return true
+      }
+      viewModel.search(query)
+      searchViewLayout.binding.searchViewInput.hideKeyboard()
+      searchViewLayout.binding.searchViewInput.clearFocus()
+      return true
     }
   }
 

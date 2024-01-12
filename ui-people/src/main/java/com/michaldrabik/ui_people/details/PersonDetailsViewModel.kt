@@ -48,7 +48,7 @@ class PersonDetailsViewModel @Inject constructor(
   private var imagesJobs = mutableMapOf<String, Boolean>()
   private var translationsJobs = mutableMapOf<String, Boolean>()
 
-  fun loadDetails(person: Person) {
+  fun loadDetails(person: Person, personArgs: PersonDetailsArgs) {
     viewModelScope.launch {
       mainProgressJob = launchDelayed(750) { setMainLoading(true) }
       try {
@@ -67,7 +67,7 @@ class PersonDetailsViewModel @Inject constructor(
         }
         mainProgressJob?.cancelAndJoin()
 
-        loadCredits(details)
+        loadCredits(details, personArgs)
       } catch (error: Throwable) {
         messageChannel.send(MessageEvent.Error(R.string.errorGeneral))
         Timber.e(error)
@@ -78,7 +78,11 @@ class PersonDetailsViewModel @Inject constructor(
     }
   }
 
-  fun loadCredits(person: Person, filters: List<Mode> = emptyList()) {
+  fun loadCredits(
+    person: Person,
+    personArgs: PersonDetailsArgs?,
+    filters: List<Mode> = emptyList(),
+  ) {
     creditsJob?.cancel()
     creditsJob = viewModelScope.launch {
       creditsProgressJob = launchDelayed(500) { setCreditsLoading(true) }
@@ -100,7 +104,18 @@ class PersonDetailsViewModel @Inject constructor(
             currentValue.add(PersonDetailsItem.CreditsHeader(year))
             currentValue.addAll(credit)
           }
+
           personDetailsItemsState.value = currentValue
+
+          personArgs?.let {
+            eventChannel.send(
+              PersonDetailsUiEvent.ScrollToPosition(
+                position = it.firstVisibleItemPosition,
+                isSheetExpanded = it.isExpanded,
+                isUpButtonVisible = it.isUpButtonVisible
+              )
+            )
+          }
         }
       } catch (error: Throwable) {
         messageChannel.send(MessageEvent.Error(R.string.errorGeneral))
