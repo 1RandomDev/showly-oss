@@ -1,6 +1,9 @@
 ![Version](https://img.shields.io/github/v/tag/1RandomDev/showly-oss?style=flat&label=Version)
 ![Downloads](https://img.shields.io/github/downloads/1RandomDev/showly-oss/total?style=flat&label=Downloads)
 
+> [!NOTE]  
+> Since the official Showly app is now open source (only APK on GitHub, not the PlayStore version), this fork becomes obsolete and will therefor be archived. You can download the latest OSS version from the [official repo](https://github.com/michaldrabik/showly/releases).
+
 # Showly OSS
 <img src="https://i.ibb.co/ChBN7Lg/ic-launcher.png" align="left" width="180" hspace="10" vspace="10" />
 
