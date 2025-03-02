@@ -48,10 +48,10 @@
   </plurals>
 
   <string name="textPeople">Mọi người:</string>
-  <string name="textDirecting">Chỉ đạo</string>
+  <string name="textDirecting">Đạo diễn</string>
   <string name="textDirector">Đạo diễn</string>
-  <string name="textWriting">Tác giả</string>
-  <string name="textScreenplay">Kịch bản</string>
+  <string name="textWriting">Kịch bản</string>
+  <string name="textScreenplay">Kịch bản phim</string>
   <string name="textSound">Âm thanh</string>
   <string name="textMusic">Âm nhạc</string>
   <string name="textActing">Diễn xuất</string>
